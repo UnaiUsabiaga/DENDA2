@@ -13,5 +13,10 @@ namespace ERRONKA7
 
             AdminLogin.Show();
         }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+            //holsa
+        }
     }
 }

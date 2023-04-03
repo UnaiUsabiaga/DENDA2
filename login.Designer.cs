@@ -37,7 +37,7 @@
             Administraria.BackColor = SystemColors.ActiveCaption;
             Administraria.Cursor = Cursors.Hand;
             Administraria.Font = new Font("Perpetua Titling MT", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Administraria.Location = new Point(313, 87);
+            Administraria.Location = new Point(313, 103);
             Administraria.Name = "Administraria";
             Administraria.Size = new Size(181, 60);
             Administraria.TabIndex = 0;
@@ -57,15 +57,16 @@
             button1.Text = "Langilea";
             button1.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(Administraria);
-            Name = "Form1";
+            Name = "login";
             Text = "Form1";
+            Load += login_Load;
             ResumeLayout(false);
         }
 
