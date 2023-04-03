@@ -115,7 +115,8 @@
             Controls.Add(label2);
             Controls.Add(lLangileaLogin);
             Name = "langileaLogin";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Langilea Login";
             ResumeLayout(false);
             PerformLayout();
         }
