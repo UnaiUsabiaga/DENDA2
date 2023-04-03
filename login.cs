@@ -16,7 +16,19 @@ namespace ERRONKA7
 
         private void login_Load(object sender, EventArgs e)
         {
-            //holsa
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form langileaLogin = new langileaLogin();
+
+            langileaLogin.Show();
         }
     }
 }

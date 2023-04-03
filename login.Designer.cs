@@ -30,6 +30,7 @@
         {
             Administraria = new Button();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // Administraria
@@ -56,16 +57,33 @@
             button1.TabIndex = 1;
             button1.Text = "Langilea";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(255, 192, 192);
+            button2.Cursor = Cursors.Hand;
+            button2.ForeColor = SystemColors.ControlText;
+            button2.Location = new Point(313, 373);
+            button2.Name = "button2";
+            button2.Size = new Size(181, 38);
+            button2.TabIndex = 2;
+            button2.Text = "Irten";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = button2;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(Administraria);
             Name = "login";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login Hasiera";
             Load += login_Load;
             ResumeLayout(false);
         }
@@ -75,5 +93,6 @@
         private Button Administraria;
         private Button button1;
         private EventHandler AdminLogin_Click;
+        private Button button2;
     }
 }

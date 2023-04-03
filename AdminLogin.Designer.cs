@@ -28,12 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            textPasahitza = new TextBox();
+            bAdminLogin = new Button();
+            bItxiAdmin = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoEllipsis = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Perpetua Titling MT", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(213, 56);
+            label1.Name = "label1";
+            label1.Size = new Size(369, 33);
+            label1.TabIndex = 0;
+            label1.Text = "Administraria Login";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(265, 156);
+            label2.Name = "label2";
+            label2.Size = new Size(232, 25);
+            label2.TabIndex = 1;
+            label2.Text = "Erabiltzailea: Administraria";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(265, 203);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 28);
+            label3.TabIndex = 2;
+            label3.Text = "Pasahitza:";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // textPasahitza
+            // 
+            textPasahitza.Cursor = Cursors.IBeam;
+            textPasahitza.Location = new Point(371, 207);
+            textPasahitza.Name = "textPasahitza";
+            textPasahitza.PasswordChar = '*';
+            textPasahitza.Size = new Size(229, 27);
+            textPasahitza.TabIndex = 3;
+            textPasahitza.UseSystemPasswordChar = true;
+            // 
+            // bAdminLogin
+            // 
+            bAdminLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            bAdminLogin.BackColor = Color.FromArgb(192, 255, 192);
+            bAdminLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            bAdminLogin.Location = new Point(456, 318);
+            bAdminLogin.Name = "bAdminLogin";
+            bAdminLogin.Size = new Size(144, 92);
+            bAdminLogin.TabIndex = 4;
+            bAdminLogin.Text = "LOGIN";
+            bAdminLogin.UseVisualStyleBackColor = false;
+            // 
+            // bItxiAdmin
+            // 
+            bItxiAdmin.BackColor = Color.FromArgb(255, 192, 192);
+            bItxiAdmin.Location = new Point(265, 364);
+            bItxiAdmin.Name = "bItxiAdmin";
+            bItxiAdmin.Size = new Size(107, 46);
+            bItxiAdmin.TabIndex = 5;
+            bItxiAdmin.Text = "Itxi";
+            bItxiAdmin.UseVisualStyleBackColor = false;
+            bItxiAdmin.Click += bItxiAdmin_Click;
+            // 
+            // AdminLogin
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Controls.Add(bItxiAdmin);
+            Controls.Add(bAdminLogin);
+            Controls.Add(textPasahitza);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "AdminLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Administraria Login";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private TextBox textPasahitza;
+        private Button bAdminLogin;
+        private Button bItxiAdmin;
     }
 }

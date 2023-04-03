@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ERRONKA7
 {
-    public partial class AdminLogin : Form
+    public partial class langileaLogin : Form
     {
-        public AdminLogin()
+        public langileaLogin()
         {
             InitializeComponent();
         }
