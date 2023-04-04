@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(langileaLogin));
             lLangileaLogin = new Label();
             bItxiAdmin = new Button();
             bAdminLogin = new Button();
             textPasahitza = new TextBox();
             label3 = new Label();
             label2 = new Label();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lLangileaLogin
@@ -103,11 +106,23 @@
             label2.Text = "Erabiltzailea: Langilea";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(658, 305);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(112, 107);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
+            // 
             // langileaLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
             Controls.Add(bItxiAdmin);
             Controls.Add(bAdminLogin);
             Controls.Add(textPasahitza);
@@ -117,6 +132,7 @@
             Name = "langileaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Langilea Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +145,6 @@
         private TextBox textPasahitza;
         private Label label3;
         private Label label2;
+        private PictureBox pictureBox2;
     }
 }

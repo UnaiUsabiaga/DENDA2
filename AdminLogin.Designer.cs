@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminLogin));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             textPasahitza = new TextBox();
             bAdminLogin = new Button();
             bItxiAdmin = new Button();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -103,11 +106,23 @@
             bItxiAdmin.UseVisualStyleBackColor = false;
             bItxiAdmin.Click += bItxiAdmin_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(662, 318);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(112, 107);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            // 
             // AdminLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
             Controls.Add(bItxiAdmin);
             Controls.Add(bAdminLogin);
             Controls.Add(textPasahitza);
@@ -117,6 +132,7 @@
             Name = "AdminLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Administraria Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +145,6 @@
         private TextBox textPasahitza;
         private Button bAdminLogin;
         private Button bItxiAdmin;
+        private PictureBox pictureBox2;
     }
 }
