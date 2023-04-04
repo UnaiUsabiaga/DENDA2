@@ -5,6 +5,8 @@ namespace ERRONKA7
         public login()
         {
             InitializeComponent();
+
+
         }
 
         private void bAdmin_Click(object sender, EventArgs e)

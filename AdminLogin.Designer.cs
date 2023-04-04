@@ -76,7 +76,7 @@
             // textPasahitza
             // 
             textPasahitza.Cursor = Cursors.IBeam;
-            textPasahitza.Location = new Point(371, 207);
+            textPasahitza.Location = new Point(371, 203);
             textPasahitza.Name = "textPasahitza";
             textPasahitza.PasswordChar = '*';
             textPasahitza.Size = new Size(229, 27);
