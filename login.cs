@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace ERRONKA7
 {
     public partial class login : Form
@@ -5,7 +7,6 @@ namespace ERRONKA7
         public login()
         {
             InitializeComponent();
-
 
         }
 

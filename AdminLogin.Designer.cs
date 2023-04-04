@@ -82,6 +82,7 @@
             textPasahitza.Size = new Size(229, 27);
             textPasahitza.TabIndex = 3;
             textPasahitza.UseSystemPasswordChar = true;
+            textPasahitza.Leave += textPasahitza_Leave;
             // 
             // bAdminLogin
             // 
@@ -94,6 +95,7 @@
             bAdminLogin.TabIndex = 4;
             bAdminLogin.Text = "LOGIN";
             bAdminLogin.UseVisualStyleBackColor = false;
+            bAdminLogin.Click += bAdminLogin_Click;
             // 
             // bItxiAdmin
             // 
