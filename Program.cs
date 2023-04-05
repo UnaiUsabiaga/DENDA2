@@ -21,6 +21,8 @@ namespace ERRONKA7
 
             Marionetik aldaketa
 
+                AZkenengo aldaketa bat
+
 
 
             Unaik,... aldaketa hau sartu du
