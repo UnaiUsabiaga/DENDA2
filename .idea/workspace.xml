@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83f89e4b-79b0-4587-9c1c-5cc539aa97f8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdminLogin.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLogin.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLogin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Konexioa.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Konexioa.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/langileaLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/langileaLogin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/login.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/login.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.resx" beforeDir="false" afterPath="$PROJECT_DIR$/login.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +23,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="DENDA2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="DENDA2" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
