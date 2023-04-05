@@ -19,7 +19,6 @@ namespace ERRONKA7
             loginForm = new login();
             Application.Run(loginForm);
 
-            lklkkklkl
         }
     }
 }
