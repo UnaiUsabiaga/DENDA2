@@ -19,6 +19,8 @@ namespace ERRONKA7
             loginForm = new login();
             Application.Run(loginForm);
 
+            Marionetik aldaketa
+
 
 
             Unaik,... aldaketa hau sartu du
