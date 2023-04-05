@@ -5,6 +5,7 @@ namespace ERRONKA7
         public static login loginForm;
         public static AdminLogin adminLoginForm;
         public static langileaLogin langileaLoginForm;
+        public static datuak datuakForm;
 
         /// <summary>
         ///  The main entry point for the application
@@ -18,14 +19,6 @@ namespace ERRONKA7
             ApplicationConfiguration.Initialize();
             loginForm = new login();
             Application.Run(loginForm);
-
-            Marionetik aldaketa
-
-                AZkenengo aldaketa bat
-
-
-
-            Unaik,... aldaketa hau sartu du
 
         }
     }

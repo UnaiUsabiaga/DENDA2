@@ -14,8 +14,10 @@ namespace ERRONKA7
         {
             bool konexioa = false;
 
+            string server = "localhost";
+            string datubasea = "db_erronka7";
 
-            string connectionString = "server=localhost;port=3306;database=db_erronka7;uid="+ erabiltzailea +";password=" + pasahitza;
+            string connectionString = "server="+ server +";port=3306;database="+ datubasea +";uid="+ erabiltzailea +";password=" + pasahitza;
 
             connection = new MySqlConnection(connectionString);
             try
