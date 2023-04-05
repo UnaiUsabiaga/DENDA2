@@ -17,9 +17,8 @@ namespace ERRONKA7
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             loginForm = new login();
-            Application.Run(loginForm);
+            Application.Run(loginForm)
 
-            lklkkklkl
         }
     }
 }
