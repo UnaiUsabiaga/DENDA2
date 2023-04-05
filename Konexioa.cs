@@ -10,7 +10,7 @@ namespace ERRONKA7
     internal class Konexioa
     {
         public static MySqlConnection connection; 
-        public bool konexioaBurutu(String erabiltzailea, String pasahitza) 
+        public bool konexioaBurutu(string erabiltzailea, string pasahitza) 
         {
             bool konexioa = false;
 

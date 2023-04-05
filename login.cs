@@ -12,9 +12,11 @@ namespace ERRONKA7
 
         private void bAdmin_Click(object sender, EventArgs e)
         {
-            Form AdminLogin = new AdminLogin();
+            Program.adminLoginForm = new AdminLogin();
 
-            AdminLogin.Show();
+            Program.adminLoginForm.Show();
+            Program.loginForm.Hide();
+
         }
 
         private void login_Load(object sender, EventArgs e)
@@ -25,13 +27,15 @@ namespace ERRONKA7
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form langileaLogin = new langileaLogin();
+            Program.langileaLoginForm = new langileaLogin();
 
-            langileaLogin.Show();
+            Program.langileaLoginForm.Show();
+            Program.loginForm.Hide();
         }
     }
 }

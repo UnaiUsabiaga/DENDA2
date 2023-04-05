@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83f89e4b-79b0-4587-9c1c-5cc539aa97f8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/AdminLogin.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLogin.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLogin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Konexioa.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Konexioa.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/langileaLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/langileaLogin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/login.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/login.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.resx" beforeDir="false" afterPath="$PROJECT_DIR$/login.resx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2O02IlxH86DC9txQ1D3GBYzfJ6k" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83f89e4b-79b0-4587-9c1c-5cc539aa97f8" name="Changes" comment="" />
+      <created>1680683104453</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680683104453</updated>
+    </task>
+    <servers />
+  </component>
+</project>
