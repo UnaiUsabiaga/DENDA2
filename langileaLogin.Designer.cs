@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(langileaLogin));
             lLangileaLogin = new Label();
             bItxiAdmin = new Button();
-            bAdminLogin = new Button();
-            textPasahitza = new TextBox();
+            bLangileaLogin = new Button();
+            textLangilePasahitza = new TextBox();
             label3 = new Label();
             label2 = new Label();
             pictureBox2 = new PictureBox();
@@ -60,29 +60,30 @@
             bItxiAdmin.TabIndex = 10;
             bItxiAdmin.Text = "Itxi";
             bItxiAdmin.UseVisualStyleBackColor = false;
-            bItxiAdmin.Click += bItxiAdmin_Click;
+            bItxiAdmin.Click += bItxiLangilea_Click;
             // 
-            // bAdminLogin
+            // bLangileaLogin
             // 
-            bAdminLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            bAdminLogin.BackColor = Color.FromArgb(192, 255, 192);
-            bAdminLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            bAdminLogin.Location = new Point(430, 305);
-            bAdminLogin.Name = "bAdminLogin";
-            bAdminLogin.Size = new Size(144, 92);
-            bAdminLogin.TabIndex = 9;
-            bAdminLogin.Text = "LOGIN";
-            bAdminLogin.UseVisualStyleBackColor = false;
+            bLangileaLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            bLangileaLogin.BackColor = Color.FromArgb(192, 255, 192);
+            bLangileaLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            bLangileaLogin.Location = new Point(430, 305);
+            bLangileaLogin.Name = "bLangileaLogin";
+            bLangileaLogin.Size = new Size(144, 92);
+            bLangileaLogin.TabIndex = 9;
+            bLangileaLogin.Text = "LOGIN";
+            bLangileaLogin.UseVisualStyleBackColor = false;
+            bLangileaLogin.Click += bLangileaLogin_Click;
             // 
-            // textPasahitza
+            // textLangilePasahitza
             // 
-            textPasahitza.Cursor = Cursors.IBeam;
-            textPasahitza.Location = new Point(347, 195);
-            textPasahitza.Name = "textPasahitza";
-            textPasahitza.PasswordChar = '*';
-            textPasahitza.Size = new Size(227, 27);
-            textPasahitza.TabIndex = 8;
-            textPasahitza.UseSystemPasswordChar = true;
+            textLangilePasahitza.Cursor = Cursors.IBeam;
+            textLangilePasahitza.Location = new Point(347, 195);
+            textLangilePasahitza.Name = "textLangilePasahitza";
+            textLangilePasahitza.PasswordChar = '*';
+            textLangilePasahitza.Size = new Size(227, 27);
+            textLangilePasahitza.TabIndex = 8;
+            textLangilePasahitza.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -124,8 +125,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(pictureBox2);
             Controls.Add(bItxiAdmin);
-            Controls.Add(bAdminLogin);
-            Controls.Add(textPasahitza);
+            Controls.Add(bLangileaLogin);
+            Controls.Add(textLangilePasahitza);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(lLangileaLogin);
@@ -141,8 +142,8 @@
 
         private Label lLangileaLogin;
         private Button bItxiAdmin;
-        private Button bAdminLogin;
-        private TextBox textPasahitza;
+        private Button bLangileaLogin;
+        private TextBox textLangilePasahitza;
         private Label label3;
         private Label label2;
         private PictureBox pictureBox2;

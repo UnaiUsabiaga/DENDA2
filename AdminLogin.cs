@@ -1,18 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ERRONKA7
 {
     public partial class AdminLogin : Form
     {
+        String erabiltzailea = "administraria";
         public AdminLogin()
         {
             InitializeComponent();
@@ -25,35 +17,24 @@ namespace ERRONKA7
 
         private void bAdminLogin_Click(object sender, EventArgs e)
         {
-            konexioBurutu();
+            Konexioa konexioa = new Konexioa();
+            konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
+
         }
 
         private void textPasahitza_Leave(object sender, EventArgs e)
         {
-            konexioBurutu();
-        }
+            //Konexioa konexioa = new Konexioa();
 
-        private void konexioBurutu()
+            //konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
+        }
+        private void konexioEgokia(Boolean konexioa)
         {
-            string strPasahitza = textPasahitza.Text;
-
-            string connectionString = "server=localhost;port=3306;database=db_erronka7;uid=administraria;password=" + strPasahitza;
-
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            try
+            if (konexioa == false)
             {
-                connection.Open();
-                MessageBox.Show("Konexioa burutu da!");
+                MessageBox.Show("Konexioa ezin izan da burutu!");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Pasahitz OKERRA!");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
         }
+
     }
 }

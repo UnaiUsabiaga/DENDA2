@@ -82,7 +82,6 @@
             textPasahitza.Size = new Size(229, 27);
             textPasahitza.TabIndex = 3;
             textPasahitza.UseSystemPasswordChar = true;
-            textPasahitza.Leave += textPasahitza_Leave;
             // 
             // bAdminLogin
             // 
