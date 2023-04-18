@@ -21,6 +21,10 @@ namespace ERRONKA7
             Konexioa konexioa = new Konexioa();
             konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
 
+            Program.datuakForm.Show();
+            this.Hide();
+            
+
         }
 
         private void textPasahitza_Leave(object sender, EventArgs e)

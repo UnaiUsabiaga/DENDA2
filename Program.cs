@@ -5,7 +5,7 @@ namespace ERRONKA7
         public static login loginForm;
         public static AdminLogin adminLoginForm;
         public static langileaLogin langileaLoginForm;
-        public static datuak datuakForm;
+        public static bErregistroBerria datuakForm;
 
         /// <summary>
         ///  The main entry point for the application
@@ -18,6 +18,11 @@ namespace ERRONKA7
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             loginForm = new login();
+            adminLoginForm = new AdminLogin();
+            langileaLoginForm = new langileaLogin();
+            datuakForm = new bErregistroBerria();
+
+
             Application.Run(loginForm);
 
         }

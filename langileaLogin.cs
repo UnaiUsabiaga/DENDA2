@@ -2,7 +2,7 @@
 
 namespace ERRONKA7
 {
-    
+
     public partial class langileaLogin : Form
     {
         String erabiltzailea = "langilea";

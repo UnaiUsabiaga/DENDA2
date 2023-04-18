@@ -130,6 +130,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(lLangileaLogin);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "langileaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Langilea Login";
