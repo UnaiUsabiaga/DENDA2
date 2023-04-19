@@ -21,17 +21,10 @@ namespace ERRONKA7
             Konexioa konexioa = new Konexioa();
             konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
 
-            Program.datuakForm.Show();
+            Program.adminMenuForm.Show();
             this.Hide();
-            
 
-        }
 
-        private void textPasahitza_Leave(object sender, EventArgs e)
-        {
-            //Konexioa konexioa = new Konexioa();
-
-            //konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
         }
         private void konexioEgokia(Boolean konexioa)
         {
@@ -41,5 +34,19 @@ namespace ERRONKA7
             }
         }
 
+        private void AdminLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bAdminLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void textPasahitza_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

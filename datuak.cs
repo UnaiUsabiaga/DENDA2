@@ -34,6 +34,17 @@ namespace ERRONKA7
         {
             datuakKargatu();
 
+            listBox1.DataSource = null;
+
+            string sql = "SELECT idProduktua,izena,modeloa,pantailaTamaina,deskribapena FROM produktutaula";
+            MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            listBox1.DataSource = dt;
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -47,7 +58,7 @@ namespace ERRONKA7
             // Konexioa.connection.Open();
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT idProduktua,izena,modeloa,pantailaTamaina,deskribapena FROM produktutaula";
+            string sql = "SELECT gailuMota FROM gailumotataula";
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
@@ -58,7 +69,7 @@ namespace ERRONKA7
 
         private void btErregistroBerria_Click(object sender, EventArgs e)
         {
-            string izena = txtIzena.Text;
+            
             string modeloa = txtModeloa.Text;
             int kantitatea = listBoxKantitatea.SelectedIndex;
             string pantailaTamaina = txtPantaila.Text;
@@ -66,9 +77,9 @@ namespace ERRONKA7
             string mintegia = listBoxMintegi.Text;
 
 
-            string insertSententzia = "INSERT INTO produktutaula (izena,idMarka,idMintegia,modeloa,pantailaTamaina,deskribapena,Kantitatea) VALUES ('"+ izena+ "','"+modeloa+"','"+mintegia+"','"+pantailaTamaina+"','"+deskribapena+"','"+kantitatea+"')";
+            string insertSententzia = "INSERT INTO produktutaula (idMarka,idMintegia,modeloa,pantailaTamaina,deskribapena,Kantitatea) VALUES ('" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "')";
 
-            MySqlCommand command = new MySqlCommand(insertSententzia,Konexioa.connection);
+            MySqlCommand command = new MySqlCommand(insertSententzia, Konexioa.connection);
 
             try
             {
@@ -83,8 +94,8 @@ namespace ERRONKA7
             {
                 MessageBox.Show("Errorea izan da erregistroa burutzean");
             }
-            
-    
+
+
         }
     }
 }

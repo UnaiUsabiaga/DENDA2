@@ -46,5 +46,14 @@ namespace ERRONKA7
             dataGridView1.DataSource = dt;
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datuakBistaratu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

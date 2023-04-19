@@ -82,6 +82,7 @@
             textPasahitza.Size = new Size(229, 27);
             textPasahitza.TabIndex = 3;
             textPasahitza.UseSystemPasswordChar = true;
+            textPasahitza.KeyPress += textPasahitza_KeyPress;
             // 
             // bAdminLogin
             // 
@@ -95,6 +96,7 @@
             bAdminLogin.Text = "LOGIN";
             bAdminLogin.UseVisualStyleBackColor = false;
             bAdminLogin.Click += bAdminLogin_Click;
+            bAdminLogin.KeyPress += bAdminLogin_KeyPress;
             // 
             // bItxiAdmin
             // 
@@ -139,6 +141,7 @@
             Name = "AdminLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Administraria Login";
+            Load += AdminLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();

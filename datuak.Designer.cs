@@ -30,8 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bErregistroBerria));
-            bIzena = new Label();
-            txtIzena = new TextBox();
+            gailuMota = new Label();
             label1 = new Label();
             listBoxKantitatea = new ListBox();
             listBoxMintegi = new ListBox();
@@ -48,27 +47,19 @@
             btIrten = new Button();
             dataGridView1 = new DataGridView();
             mySqlDataReaderBindingSource = new BindingSource(components);
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource).BeginInit();
             SuspendLayout();
             // 
-            // bIzena
+            // gailuMota
             // 
-            bIzena.AutoSize = true;
-            bIzena.Location = new Point(44, 42);
-            bIzena.Name = "bIzena";
-            bIzena.Size = new Size(110, 20);
-            bIzena.TabIndex = 0;
-            bIzena.Text = "Produktu Izena:";
-            // 
-            // txtIzena
-            // 
-            txtIzena.CharacterCasing = CharacterCasing.Upper;
-            txtIzena.Cursor = Cursors.IBeam;
-            txtIzena.Location = new Point(172, 43);
-            txtIzena.Name = "txtIzena";
-            txtIzena.Size = new Size(171, 27);
-            txtIzena.TabIndex = 1;
+            gailuMota.AutoSize = true;
+            gailuMota.Location = new Point(44, 42);
+            gailuMota.Name = "gailuMota";
+            gailuMota.Size = new Size(85, 20);
+            gailuMota.TabIndex = 0;
+            gailuMota.Text = "Gailu mota:";
             // 
             // label1
             // 
@@ -91,9 +82,10 @@
             // 
             // listBoxMintegi
             // 
+            listBoxMintegi.DisplayMember = "Guztiak";
             listBoxMintegi.FormattingEnabled = true;
             listBoxMintegi.ItemHeight = 20;
-            listBoxMintegi.Items.AddRange(new object[] { "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa", "Zuzendaritza" });
+            listBoxMintegi.Items.AddRange(new object[] { "Guztiak", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa", "Zuzendaritza" });
             listBoxMintegi.Location = new Point(492, 43);
             listBoxMintegi.Name = "listBoxMintegi";
             listBoxMintegi.Size = new Size(171, 24);
@@ -219,12 +211,22 @@
             // 
             mySqlDataReaderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(172, 43);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(171, 24);
+            listBox1.TabIndex = 20;
+            // 
             // bErregistroBerria
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(799, 469);
+            Controls.Add(listBox1);
             Controls.Add(dataGridView1);
             Controls.Add(btIrten);
             Controls.Add(btBajaEman);
@@ -240,10 +242,10 @@
             Controls.Add(label2);
             Controls.Add(listBoxKantitatea);
             Controls.Add(label1);
-            Controls.Add(txtIzena);
-            Controls.Add(bIzena);
+            Controls.Add(gailuMota);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             MaximumSize = new Size(817, 516);
             MinimumSize = new Size(817, 516);
             Name = "bErregistroBerria";
@@ -259,8 +261,7 @@
 
         #endregion
 
-        private Label bIzena;
-        private TextBox txtIzena;
+        private Label gailuMota;
         private Label label1;
         private ListBox listBoxKantitatea;
         private ListBox listBoxMintegi;
@@ -277,5 +278,6 @@
         private Button btIrten;
         private DataGridView dataGridView1;
         private BindingSource mySqlDataReaderBindingSource;
+        private ListBox listBox1;
     }
 }

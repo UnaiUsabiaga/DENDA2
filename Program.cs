@@ -6,6 +6,9 @@ namespace ERRONKA7
         public static AdminLogin adminLoginForm;
         public static langileaLogin langileaLoginForm;
         public static bErregistroBerria datuakForm;
+        public static adminMenu adminMenuForm;
+        public static datuakBistaratu datuakBistaratuForm;
+
 
         /// <summary>
         ///  The main entry point for the application
@@ -21,6 +24,8 @@ namespace ERRONKA7
             adminLoginForm = new AdminLogin();
             langileaLoginForm = new langileaLogin();
             datuakForm = new bErregistroBerria();
+            adminMenuForm = new adminMenu();
+            datuakBistaratuForm = new datuakBistaratu();
 
 
             Application.Run(loginForm);
