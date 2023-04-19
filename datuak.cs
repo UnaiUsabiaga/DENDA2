@@ -34,16 +34,18 @@ namespace ERRONKA7
         {
             datuakKargatu();
 
-            listBox1.DataSource = null;
+            listBoxGailuMota.DataSource = null;
 
-            string sql = "SELECT idProduktua,izena,modeloa,pantailaTamaina,deskribapena FROM produktutaula";
+            string sql = "SELECT gailuMota FROM gailumotataula";
+
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();
             da.Fill(dt);
-            listBox1.DataSource = dt;
 
+            listBoxGailuMota.DataSource= dt;
+            listBoxGailuMota.DisplayMember = "gailuMota";
 
         }
 
@@ -53,12 +55,13 @@ namespace ERRONKA7
 
             Program.loginForm.Show();
         }
-        private void datuakKargatu()
+        public void datuakKargatu()
         {
             // Konexioa.connection.Open();
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT gailuMota FROM gailumotataula";
+            string sql = "SELECT idProduktua,izena,modeloa,pantailaTamaina,deskribapena FROM produktutaula";
+
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
@@ -69,7 +72,7 @@ namespace ERRONKA7
 
         private void btErregistroBerria_Click(object sender, EventArgs e)
         {
-            
+
             string modeloa = txtModeloa.Text;
             int kantitatea = listBoxKantitatea.SelectedIndex;
             string pantailaTamaina = txtPantaila.Text;

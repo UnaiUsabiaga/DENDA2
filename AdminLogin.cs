@@ -21,8 +21,8 @@ namespace ERRONKA7
             Konexioa konexioa = new Konexioa();
             konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
 
-            Program.adminMenuForm.Show();
-            this.Hide();
+ 
+            
 
 
         }
@@ -31,6 +31,11 @@ namespace ERRONKA7
             if (konexioa == false)
             {
                 MessageBox.Show("Konexioa ezin izan da burutu!");
+            }
+            else
+            {
+                this.Hide();
+                Program.adminMenuForm.Show();
             }
         }
 

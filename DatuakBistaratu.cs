@@ -16,6 +16,7 @@ namespace ERRONKA7
         public datuakBistaratu()
         {
             InitializeComponent();
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -30,6 +31,34 @@ namespace ERRONKA7
 
         private void datuakBistaratu_Load(object sender, EventArgs e)
         {
+
+            comboBoxGailuMota.DataSource = null;
+
+            string selectGailuMota = "SELECT gailuMota FROM gailumotataula";
+
+            MySqlCommand cmd = new MySqlCommand(selectGailuMota, Konexioa.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            comboBoxGailuMota.DataSource = dt;
+            comboBoxGailuMota.DisplayMember = "gailuMota";
+
+            string selectMintegia = "SELECT izena FROM mintegitaula";
+
+            comboBoxMintegia.DataSource = null;
+
+            MySqlCommand cmd2 = new MySqlCommand (selectMintegia, Konexioa.connection);
+
+            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd);
+
+            DataTable dt2 = new DataTable();
+            da2.Fill(dt2);
+
+            comboBoxMintegia.DataSource = dt2;
+            comboBoxMintegia.ValueMember = "idMintegia";
+            comboBoxMintegia.DisplayMember = "izena";
 
         }
         private void datuakKargatu(string select)

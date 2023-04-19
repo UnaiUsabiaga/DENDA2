@@ -47,9 +47,11 @@
             btIrten = new Button();
             dataGridView1 = new DataGridView();
             mySqlDataReaderBindingSource = new BindingSource(components);
-            listBox1 = new ListBox();
+            listBoxGailuMota = new ListBox();
+            mySqlDataReaderBindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // gailuMota
@@ -211,14 +213,18 @@
             // 
             mySqlDataReaderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
             // 
-            // listBox1
+            // listBoxGailuMota
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(172, 43);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(171, 24);
-            listBox1.TabIndex = 20;
+            listBoxGailuMota.FormattingEnabled = true;
+            listBoxGailuMota.ItemHeight = 20;
+            listBoxGailuMota.Location = new Point(172, 43);
+            listBoxGailuMota.Name = "listBoxGailuMota";
+            listBoxGailuMota.Size = new Size(171, 24);
+            listBoxGailuMota.TabIndex = 20;
+            // 
+            // mySqlDataReaderBindingSource1
+            // 
+            mySqlDataReaderBindingSource1.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
             // 
             // bErregistroBerria
             // 
@@ -226,7 +232,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(799, 469);
-            Controls.Add(listBox1);
+            Controls.Add(listBoxGailuMota);
             Controls.Add(dataGridView1);
             Controls.Add(btIrten);
             Controls.Add(btBajaEman);
@@ -255,6 +261,7 @@
             Load += bErregistroBerria_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -278,6 +285,7 @@
         private Button btIrten;
         private DataGridView dataGridView1;
         private BindingSource mySqlDataReaderBindingSource;
-        private ListBox listBox1;
+        private ListBox listBoxGailuMota;
+        private BindingSource mySqlDataReaderBindingSource1;
     }
 }

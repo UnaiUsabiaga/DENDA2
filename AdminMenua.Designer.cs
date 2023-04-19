@@ -102,6 +102,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(818, 497);
             Name = "adminMenu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrari Menua";
             ResumeLayout(false);
             PerformLayout();
