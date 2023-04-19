@@ -69,13 +69,22 @@ namespace ERRONKA7
             string insertSententzia = "INSERT INTO produktutaula (izena,idMarka,idMintegia,modeloa,pantailaTamaina,deskribapena,Kantitatea) VALUES ('"+ izena+ "','"+modeloa+"','"+mintegia+"','"+pantailaTamaina+"','"+deskribapena+"','"+kantitatea+"')";
 
             MySqlCommand command = new MySqlCommand(insertSententzia,Konexioa.connection);
-            
-            command.ExecuteNonQuery();
 
-            MessageBox.Show("Erregistroa ondo burutu da!");
-            
-            datuakKargatu();
+            try
+            {
+                command.ExecuteNonQuery();
 
+                MessageBox.Show("Erregistroa ondo burutu da!");
+
+                datuakKargatu();
+
+            }
+            catch
+            {
+                MessageBox.Show("Errorea izan da erregistroa burutzean");
+            }
+            
+    
         }
     }
 }
