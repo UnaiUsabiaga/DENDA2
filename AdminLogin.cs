@@ -31,6 +31,10 @@ namespace ERRONKA7
             if (konexioa == false)
             {
                 MessageBox.Show("Konexioa ezin izan da burutu!");
+
+                textPasahitza.Clear();
+                textPasahitza.BorderStyle = BorderStyle.Fixed3D;
+                textPasahitza.Select();
             }
             else
             {

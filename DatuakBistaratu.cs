@@ -49,21 +49,41 @@ namespace ERRONKA7
 
             comboBoxMintegia.DataSource = null;
 
-            MySqlCommand cmd2 = new MySqlCommand (selectMintegia, Konexioa.connection);
+            MySqlCommand cmd2 = new MySqlCommand(selectMintegia, Konexioa.connection);
 
-            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd);
+            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd2);
 
             DataTable dt2 = new DataTable();
             da2.Fill(dt2);
 
             comboBoxMintegia.DataSource = dt2;
-            comboBoxMintegia.ValueMember = "idMintegia";
+            //comboBoxMintegia.ValueMember = "idMintegia";
             comboBoxMintegia.DisplayMember = "izena";
+
+            string selectEzaugarria = "SELECT * FROM produktutaula";
+
+            comboBoxEzaugarria.DataSource = null;
+
+            MySqlCommand cmd3 = new MySqlCommand(selectEzaugarria, Konexioa.connection);
+
+            MySqlDataAdapter da3 = new MySqlDataAdapter(cmd3);
+
+            DataTable dt3 = new DataTable();
+            da3.Fill(dt3);
+
+            for (int i = 0; i < dt3.Columns.Count; i++)
+            {
+
+                comboBoxEzaugarria.Items.Add(dt3.Columns[i].ColumnName);
+            }
+            //comboBoxMintegia.ValueMember = "idMintegia";
+            //comboBoxEzaugarria.DisplayMember = 
+
 
         }
         private void datuakKargatu(string select)
         {
-            // Konexioa.connection.Open();
+
             dataGridView1.DataSource = null;
 
             string sql = select;
@@ -83,6 +103,13 @@ namespace ERRONKA7
         private void datuakBistaratu_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void btIrten_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            Program.loginForm.Show();
         }
     }
 }

@@ -35,19 +35,19 @@
             dataGridView1 = new DataGridView();
             bajaEmandaErakutsi = new CheckBox();
             txtOrderBy = new TextBox();
-            listBox2 = new ListBox();
             btBistaratu = new Button();
             btReset = new Button();
             btIrten = new Button();
             comboBoxGailuMota = new ComboBox();
             comboBoxMintegia = new ComboBox();
+            comboBoxEzaugarria = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // orderBy
             // 
             orderBy.AutoSize = true;
-            orderBy.Location = new Point(485, 77);
+            orderBy.Location = new Point(509, 82);
             orderBy.Name = "orderBy";
             orderBy.Size = new Size(70, 20);
             orderBy.TabIndex = 0;
@@ -65,7 +65,7 @@
             // mintegia
             // 
             mintegia.AutoSize = true;
-            mintegia.Location = new Point(485, 24);
+            mintegia.Location = new Point(509, 29);
             mintegia.Name = "mintegia";
             mintegia.Size = new Size(71, 20);
             mintegia.TabIndex = 5;
@@ -100,15 +100,6 @@
             txtOrderBy.Size = new Size(172, 27);
             txtOrderBy.TabIndex = 22;
             // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 20;
-            listBox2.Location = new Point(306, 21);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(150, 64);
-            listBox2.TabIndex = 23;
-            // 
             // btBistaratu
             // 
             btBistaratu.BackColor = Color.FromArgb(192, 255, 192);
@@ -138,6 +129,7 @@
             btIrten.TabIndex = 26;
             btIrten.Text = "Irten";
             btIrten.UseVisualStyleBackColor = false;
+            btIrten.Click += btIrten_Click;
             // 
             // comboBoxGailuMota
             // 
@@ -156,18 +148,26 @@
             comboBoxMintegia.Size = new Size(172, 28);
             comboBoxMintegia.TabIndex = 28;
             // 
+            // comboBoxEzaugarria
+            // 
+            comboBoxEzaugarria.FormattingEnabled = true;
+            comboBoxEzaugarria.Location = new Point(302, 21);
+            comboBoxEzaugarria.Name = "comboBoxEzaugarria";
+            comboBoxEzaugarria.Size = new Size(175, 28);
+            comboBoxEzaugarria.TabIndex = 29;
+            // 
             // datuakBistaratu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBoxEzaugarria);
             Controls.Add(comboBoxMintegia);
             Controls.Add(comboBoxGailuMota);
             Controls.Add(btIrten);
             Controls.Add(btReset);
             Controls.Add(btBistaratu);
-            Controls.Add(listBox2);
             Controls.Add(txtOrderBy);
             Controls.Add(bajaEmandaErakutsi);
             Controls.Add(dataGridView1);
@@ -198,11 +198,11 @@
         private DataGridView dataGridView1;
         private CheckBox bajaEmandaErakutsi;
         private TextBox txtOrderBy;
-        private ListBox listBox2;
         private Button btBistaratu;
         private Button btReset;
         private Button btIrten;
         private ComboBox comboBoxGailuMota;
         private ComboBox comboBoxMintegia;
+        private ComboBox comboBoxEzaugarria;
     }
 }
