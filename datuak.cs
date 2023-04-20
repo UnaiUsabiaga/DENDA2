@@ -60,7 +60,7 @@ namespace ERRONKA7
             // Konexioa.connection.Open();
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT idProduktua,izena,marka,modeloa,pantailaTamaina,kantitatea,azalpena FROM produktutaula";
+            string sql = "SELECT idProduktua,izena,marka,modeloa,pantailaTamaina,kantitatea,azalpena FROM produktuTaula";
 
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
