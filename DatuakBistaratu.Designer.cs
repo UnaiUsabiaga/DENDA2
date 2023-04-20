@@ -32,7 +32,7 @@
             orderBy = new Label();
             produktuMota = new Label();
             mintegia = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridBistaratu = new DataGridView();
             bajaEmandaErakutsi = new CheckBox();
             txtOrderBy = new TextBox();
             btBistaratu = new Button();
@@ -41,7 +41,8 @@
             comboBoxGailuMota = new ComboBox();
             comboBoxMintegia = new ComboBox();
             comboBoxEzaugarria = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            comboBoxEzaugarriPosibleak = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).BeginInit();
             SuspendLayout();
             // 
             // orderBy
@@ -71,16 +72,16 @@
             mintegia.TabIndex = 5;
             mintegia.Text = "Mintegia:";
             // 
-            // dataGridView1
+            // dataGridBistaratu
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 197);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(775, 241);
-            dataGridView1.TabIndex = 20;
+            dataGridBistaratu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridBistaratu.Location = new Point(13, 197);
+            dataGridBistaratu.Name = "dataGridBistaratu";
+            dataGridBistaratu.ReadOnly = true;
+            dataGridBistaratu.RowHeadersWidth = 51;
+            dataGridBistaratu.RowTemplate.Height = 29;
+            dataGridBistaratu.Size = new Size(775, 241);
+            dataGridBistaratu.TabIndex = 20;
             // 
             // bajaEmandaErakutsi
             // 
@@ -119,6 +120,7 @@
             btReset.TabIndex = 25;
             btReset.Text = "Reset";
             btReset.UseVisualStyleBackColor = true;
+            btReset.Click += btReset_Click;
             // 
             // btIrten
             // 
@@ -133,7 +135,8 @@
             // 
             // comboBoxGailuMota
             // 
-            comboBoxGailuMota.FormattingEnabled = true;
+            comboBoxGailuMota.AccessibleRole = AccessibleRole.ScrollBar;
+            comboBoxGailuMota.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxGailuMota.Location = new Point(114, 21);
             comboBoxGailuMota.Name = "comboBoxGailuMota";
             comboBoxGailuMota.Size = new Size(172, 28);
@@ -142,6 +145,7 @@
             // comboBoxMintegia
             // 
             comboBoxMintegia.Cursor = Cursors.Hand;
+            comboBoxMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMintegia.FormattingEnabled = true;
             comboBoxMintegia.Location = new Point(586, 21);
             comboBoxMintegia.Name = "comboBoxMintegia";
@@ -150,11 +154,21 @@
             // 
             // comboBoxEzaugarria
             // 
+            comboBoxEzaugarria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEzaugarria.FormattingEnabled = true;
             comboBoxEzaugarria.Location = new Point(302, 21);
             comboBoxEzaugarria.Name = "comboBoxEzaugarria";
             comboBoxEzaugarria.Size = new Size(175, 28);
             comboBoxEzaugarria.TabIndex = 29;
+            // 
+            // comboBoxEzaugarriPosibleak
+            // 
+            comboBoxEzaugarriPosibleak.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEzaugarriPosibleak.FormattingEnabled = true;
+            comboBoxEzaugarriPosibleak.Location = new Point(302, 73);
+            comboBoxEzaugarriPosibleak.Name = "comboBoxEzaugarriPosibleak";
+            comboBoxEzaugarriPosibleak.Size = new Size(175, 28);
+            comboBoxEzaugarriPosibleak.TabIndex = 30;
             // 
             // datuakBistaratu
             // 
@@ -162,6 +176,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
             Controls.Add(comboBoxMintegia);
             Controls.Add(comboBoxGailuMota);
@@ -170,7 +185,7 @@
             Controls.Add(btBistaratu);
             Controls.Add(txtOrderBy);
             Controls.Add(bajaEmandaErakutsi);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridBistaratu);
             Controls.Add(mintegia);
             Controls.Add(produktuMota);
             Controls.Add(orderBy);
@@ -185,7 +200,7 @@
             Text = "Datuak Bistaratu";
             Load += datuakBistaratu_Load;
             KeyPress += datuakBistaratu_KeyPress;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,7 +210,7 @@
         private Label orderBy;
         private Label produktuMota;
         private Label mintegia;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridBistaratu;
         private CheckBox bajaEmandaErakutsi;
         private TextBox txtOrderBy;
         private Button btBistaratu;
@@ -204,5 +219,6 @@
         private ComboBox comboBoxGailuMota;
         private ComboBox comboBoxMintegia;
         private ComboBox comboBoxEzaugarria;
+        private ComboBox comboBoxEzaugarriPosibleak;
     }
 }

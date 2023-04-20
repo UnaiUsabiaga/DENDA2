@@ -45,7 +45,7 @@ namespace ERRONKA7
             comboBoxGailuMota.DataSource = dt;
             comboBoxGailuMota.DisplayMember = "gailuMota";
 
-            string selectMintegia = "SELECT izena FROM mintegitaula";
+            string selectMintegia = "SELECT izena FROM mintegiTaula";
 
             comboBoxMintegia.DataSource = null;
 
@@ -57,10 +57,10 @@ namespace ERRONKA7
             da2.Fill(dt2);
 
             comboBoxMintegia.DataSource = dt2;
-            //comboBoxMintegia.ValueMember = "idMintegia";
+
             comboBoxMintegia.DisplayMember = "izena";
 
-            string selectEzaugarria = "SELECT * FROM produktutaula";
+            string selectEzaugarria = "SELECT * FROM produktuTaula";
 
             comboBoxEzaugarria.DataSource = null;
 
@@ -73,18 +73,31 @@ namespace ERRONKA7
 
             for (int i = 0; i < dt3.Columns.Count; i++)
             {
-
                 comboBoxEzaugarria.Items.Add(dt3.Columns[i].ColumnName);
             }
-            //comboBoxMintegia.ValueMember = "idMintegia";
-            //comboBoxEzaugarria.DisplayMember = 
 
+            comboBoxEzaugarriPosibleak.DataSource = null;
+
+            string selectEzaugarriPosibleak = "SELECT DISTINCT @ezaugarria FROM produktuTaula WHERE izena = @gailuMota";
+
+
+            MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
+            cmd4.Parameters.AddWithValue("@ezaugarria", comboBoxEzaugarria.Text);
+            cmd4.Parameters.AddWithValue("@gailuMota", comboBoxGailuMota.Text);
+
+            MySqlDataAdapter da4 = new MySqlDataAdapter(cmd4);
+
+            DataTable dt4 = new DataTable();
+            da4.Fill(dt4);
+            comboBoxEzaugarriPosibleak.DataSource = dt4;
+
+            comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
 
         }
         private void datuakKargatu(string select)
         {
 
-            dataGridView1.DataSource = null;
+            dataGridBistaratu.DataSource = null;
 
             string sql = select;
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
@@ -92,12 +105,26 @@ namespace ERRONKA7
 
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridBistaratu.DataSource = dt;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        public void datuakKargatu()
+        {
+            // Konexioa.connection.Open();
+            dataGridBistaratu.DataSource = null;
+
+            string sql = "SELECT idProduktua,izena,marka,modeloa,pantailaTamaina,kantitatea,azalpena FROM produktutaula";
+
+            MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridBistaratu.DataSource = dt;
         }
 
         private void datuakBistaratu_KeyPress(object sender, KeyPressEventArgs e)
@@ -110,6 +137,16 @@ namespace ERRONKA7
             this.Close();
 
             Program.loginForm.Show();
+        }
+
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            comboBoxEzaugarriPosibleak.ResetText();
+            comboBoxEzaugarria.ResetText();
+            comboBoxGailuMota.ResetText();
+            comboBoxMintegia.ResetText();
+            txtOrderBy.ResetText();
+
         }
     }
 }
