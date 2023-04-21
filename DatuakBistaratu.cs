@@ -211,12 +211,6 @@ namespace ERRONKA7
 
         private void btBistaratu_Click(object sender, EventArgs e)
         {
-            string strGailuMota = comboBoxGailuMota.SelectedValue.ToString();
-        }
-
-        private void btBistaratu_Click(object sender, EventArgs e)
-        {
-
             string selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
 
             // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
@@ -235,7 +229,6 @@ namespace ERRONKA7
             tabla.Clear(); // Borra los datos actuales del DataTable
             adapter.Fill(tabla);
             dataGridBistaratu.DataSource = tabla;
-
         }
     }
 }
