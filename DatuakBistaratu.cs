@@ -178,43 +178,33 @@ namespace ERRONKA7
         }
         private void ezaugarriPosibleakLortu()
         {
-            comboBoxEzaugarriPosibleak.DataSource = null;
+            if (comboBoxGailuMota.SelectedValue != null)
+            {
+                comboBoxEzaugarriPosibleak.DataSource = null;
+                string ezaugarriAukeraketa = comboBoxEzaugarria.Text;
+                string gailuMotaAukeraketa = comboBoxGailuMota.SelectedValue.ToString();
 
-            string selectEzaugarriPosibleak = "SELECT DISTINCT @ezaugarria FROM produktutaula WHERE gailuMota = @gailuMota";
+                string selectEzaugarriPosibleak = "SELECT DISTINCT" + ezaugarriAukeraketa + " FROM produktutaula WHERE gailuMota =" + gailuMotaAukeraketa + "";
 
 
-            MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
-            cmd4.Parameters.AddWithValue("@ezaugarria", comboBoxEzaugarria.Text);
-            cmd4.Parameters.AddWithValue("@gailuMota", comboBoxGailuMota.Text);
+                MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
 
-            MySqlDataAdapter da4 = new MySqlDataAdapter(cmd4);
+                MySqlDataAdapter da4 = new MySqlDataAdapter(cmd4);
 
-            DataTable dt4 = new DataTable();
-            da4.Fill(dt4);
-            comboBoxEzaugarriPosibleak.DataSource = dt4;
+                DataTable dt4 = new DataTable();
+                da4.Fill(dt4);
+                comboBoxEzaugarriPosibleak.DataSource = dt4;
 
-            comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
+                comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
+            }         
+            
 
-        }
-        private void datuTaulaKargatu(string select)
-        {
-
-            dataGridBistaratu.DataSource = null;
-
-            string selectDataGrid = select;
-
-            MySqlCommand cmd5 = new MySqlCommand(selectDataGrid, Konexioa.connection);
-            MySqlDataAdapter da5 = new MySqlDataAdapter(cmd5);
-
-            DataTable dt5 = new DataTable();
-            da5.Fill(dt5);
-
-            dataGridBistaratu.DataSource = dt5;
         }
 
         private void btBistaratu_Click(object sender, EventArgs e)
         {
             string selectgailuMota="";
+            string selectEzaugarria = "";
             string consultaSql = "SELECT * FROM produktutaula";
 
             if (comboBoxGailuMota.SelectedValue != null)
@@ -223,13 +213,21 @@ namespace ERRONKA7
                 
                 // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
                 consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota";
+
+                if(comboBoxEzaugarria.SelectedValue != null)
+                {
+                    selectEzaugarria = comboBoxEzaugarria.SelectedValue.ToString();
+
+                    consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota AND ezaugarria= @ezaugarria";
+                }
             }
-            
-                    
+
+                               
 
             // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
             MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);
             komandoa.Parameters.AddWithValue("@gailuMota", selectgailuMota);
+            komandoa.Parameters.AddWithValue("@ezaugarria",selectEzaugarria);
 
             // DataAdapter objektu bat sortu eta DataTable objektu bat datu egituraz betetzeko SQL komando objektua erabiliz
             MySqlDataAdapter adapter = new MySqlDataAdapter(komandoa);
