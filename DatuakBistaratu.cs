@@ -31,67 +31,28 @@ namespace ERRONKA7
 
         private void datuakBistaratu_Load(object sender, EventArgs e)
         {
+            gailuMotakLortu();
 
-            comboBoxGailuMota.DataSource = null;
+            mintegiakLortu();
 
-            string selectGailuMota = "SELECT gailuMota FROM gailumotataula";
+            ezaugarriakLortu();
 
-            MySqlCommand cmd = new MySqlCommand(selectGailuMota, Konexioa.connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            ezaugarriPosibleakLortu();
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            
 
-            comboBoxGailuMota.DataSource = dt;
-            comboBoxGailuMota.DisplayMember = "gailuMota";
+            dataGridBistaratu.DataSource = null;
 
-            string selectMintegia = "SELECT izena FROM mintegiTaula";
+            string selectDataGrid = "SELECT * FROM produktutaula";
 
-            comboBoxMintegia.DataSource = null;
+            MySqlCommand cmd5 = new MySqlCommand(selectDataGrid, Konexioa.connection);
+            MySqlDataAdapter da5 = new MySqlDataAdapter(cmd5);
 
-            MySqlCommand cmd2 = new MySqlCommand(selectMintegia, Konexioa.connection);
+            DataTable dt5 = new DataTable();
+            da5.Fill(dt5);
 
-            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd2);
+            dataGridBistaratu.DataSource = dt5;
 
-            DataTable dt2 = new DataTable();
-            da2.Fill(dt2);
-
-            comboBoxMintegia.DataSource = dt2;
-
-            comboBoxMintegia.DisplayMember = "izena";
-
-            string selectEzaugarria = "SELECT * FROM produktuTaula";
-
-            comboBoxEzaugarria.DataSource = null;
-
-            MySqlCommand cmd3 = new MySqlCommand(selectEzaugarria, Konexioa.connection);
-
-            MySqlDataAdapter da3 = new MySqlDataAdapter(cmd3);
-
-            DataTable dt3 = new DataTable();
-            da3.Fill(dt3);
-
-            for (int i = 0; i < dt3.Columns.Count; i++)
-            {
-                comboBoxEzaugarria.Items.Add(dt3.Columns[i].ColumnName);
-            }
-
-            comboBoxEzaugarriPosibleak.DataSource = null;
-
-            string selectEzaugarriPosibleak = "SELECT DISTINCT @ezaugarria FROM produktuTaula WHERE izena = @gailuMota";
-
-
-            MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
-            cmd4.Parameters.AddWithValue("@ezaugarria", comboBoxEzaugarria.Text);
-            cmd4.Parameters.AddWithValue("@gailuMota", comboBoxGailuMota.Text);
-
-            MySqlDataAdapter da4 = new MySqlDataAdapter(cmd4);
-
-            DataTable dt4 = new DataTable();
-            da4.Fill(dt4);
-            comboBoxEzaugarriPosibleak.DataSource = dt4;
-
-            comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
 
         }
         private void datuakKargatu(string select)
@@ -117,7 +78,7 @@ namespace ERRONKA7
             // Konexioa.connection.Open();
             dataGridBistaratu.DataSource = null;
 
-            string sql = "SELECT idProduktua,izena,marka,modeloa,pantailaTamaina,kantitatea,azalpena FROM produktutaula";
+            string sql = "SELECT idProduktua,gailuMota,marka,mintegia,modeloa,pantailaTamaina,kantitatea,deskribapena,kantitatea,erosketaData FROM produktutaula";
 
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -141,11 +102,90 @@ namespace ERRONKA7
 
         private void btReset_Click(object sender, EventArgs e)
         {
-            comboBoxEzaugarriPosibleak.ResetText();
-            comboBoxEzaugarria.ResetText();
-            comboBoxGailuMota.ResetText();
-            comboBoxMintegia.ResetText();
-            txtOrderBy.ResetText();
+            comboBoxGailuMota.SelectedItem = null;
+            comboBoxEzaugarria.SelectedItem = null;
+            comboBoxMintegia.SelectedItem = null;
+        }
+
+        private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGailuMota.SelectedItem == null)
+            {
+                datuakKargatu();
+            }
+        }
+        private void gailuMotakLortu()
+        {
+            comboBoxGailuMota.DataSource = null;
+
+            string selectGailuMota = "SELECT gailuMota FROM gailumotataula";
+
+            MySqlCommand cmd = new MySqlCommand(selectGailuMota, Konexioa.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            comboBoxGailuMota.DataSource = dt;
+            comboBoxGailuMota.DisplayMember = "gailuMota";
+            comboBoxGailuMota.SelectedItem = null;
+        }
+
+        private void mintegiakLortu()
+        {
+            string selectMintegia = "SELECT izena FROM mintegiTaula";
+
+            comboBoxMintegia.DataSource = null;
+
+            MySqlCommand cmd2 = new MySqlCommand(selectMintegia, Konexioa.connection);
+
+            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd2);
+
+            DataTable dt2 = new DataTable();
+            da2.Fill(dt2);
+
+            comboBoxMintegia.DataSource = dt2;
+
+            comboBoxMintegia.DisplayMember = "izena";
+        }
+
+        private void ezaugarriakLortu()
+        {
+            string selectEzaugarria = "SELECT * FROM produktutaula";
+
+            comboBoxEzaugarria.DataSource = null;
+
+            MySqlCommand cmd3 = new MySqlCommand(selectEzaugarria, Konexioa.connection);
+
+            MySqlDataAdapter da3 = new MySqlDataAdapter(cmd3);
+
+            DataTable dt3 = new DataTable();
+            da3.Fill(dt3);
+
+            for (int i = 0; i < dt3.Columns.Count; i++)
+            {
+                comboBoxEzaugarria.Items.Add(dt3.Columns[i].ColumnName);
+            }
+        }
+
+        private void ezaugarriPosibleakLortu()
+        {
+            comboBoxEzaugarriPosibleak.DataSource = null;
+
+            string selectEzaugarriPosibleak = "SELECT DISTINCT @ezaugarria FROM produktutaula WHERE gailuMota = @gailuMota";
+
+
+            MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
+            cmd4.Parameters.AddWithValue("@ezaugarria", comboBoxEzaugarria.Text);
+            cmd4.Parameters.AddWithValue("@gailuMota", comboBoxGailuMota.Text);
+
+            MySqlDataAdapter da4 = new MySqlDataAdapter(cmd4);
+
+            DataTable dt4 = new DataTable();
+            da4.Fill(dt4);
+            comboBoxEzaugarriPosibleak.DataSource = dt4;
+
+            comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
 
         }
     }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bErregistroBerria));
             gailuMota = new Label();
             label1 = new Label();
@@ -46,18 +45,16 @@
             btBajaEman = new Button();
             btIrten = new Button();
             dataGridView1 = new DataGridView();
-            mySqlDataReaderBindingSource = new BindingSource(components);
             listBoxGailuMota = new ListBox();
-            mySqlDataReaderBindingSource1 = new BindingSource(components);
+            dateTimePicker1 = new DateTimePicker();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // gailuMota
             // 
             gailuMota.AutoSize = true;
-            gailuMota.Location = new Point(44, 42);
+            gailuMota.Location = new Point(44, 19);
             gailuMota.Name = "gailuMota";
             gailuMota.Size = new Size(85, 20);
             gailuMota.TabIndex = 0;
@@ -66,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(376, 86);
+            label1.Location = new Point(376, 64);
             label1.Name = "label1";
             label1.Size = new Size(80, 20);
             label1.TabIndex = 2;
@@ -77,7 +74,7 @@
             listBoxKantitatea.FormattingEnabled = true;
             listBoxKantitatea.ItemHeight = 20;
             listBoxKantitatea.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            listBoxKantitatea.Location = new Point(492, 86);
+            listBoxKantitatea.Location = new Point(492, 64);
             listBoxKantitatea.Name = "listBoxKantitatea";
             listBoxKantitatea.Size = new Size(171, 24);
             listBoxKantitatea.TabIndex = 4;
@@ -88,7 +85,7 @@
             listBoxMintegi.FormattingEnabled = true;
             listBoxMintegi.ItemHeight = 20;
             listBoxMintegi.Items.AddRange(new object[] { "Guztiak", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa", "Zuzendaritza" });
-            listBoxMintegi.Location = new Point(492, 43);
+            listBoxMintegi.Location = new Point(492, 20);
             listBoxMintegi.Name = "listBoxMintegi";
             listBoxMintegi.Size = new Size(171, 24);
             listBoxMintegi.TabIndex = 6;
@@ -96,7 +93,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(385, 43);
+            label2.Location = new Point(385, 20);
             label2.Name = "label2";
             label2.Size = new Size(71, 20);
             label2.TabIndex = 5;
@@ -105,7 +102,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(44, 89);
+            label3.Location = new Point(44, 67);
             label3.Name = "label3";
             label3.Size = new Size(72, 20);
             label3.TabIndex = 7;
@@ -115,7 +112,7 @@
             // 
             txtModeloa.CharacterCasing = CharacterCasing.Upper;
             txtModeloa.Cursor = Cursors.IBeam;
-            txtModeloa.Location = new Point(172, 86);
+            txtModeloa.Location = new Point(172, 64);
             txtModeloa.Name = "txtModeloa";
             txtModeloa.Size = new Size(171, 27);
             txtModeloa.TabIndex = 8;
@@ -123,7 +120,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(44, 139);
+            label4.Location = new Point(44, 117);
             label4.Name = "label4";
             label4.Size = new Size(122, 20);
             label4.TabIndex = 10;
@@ -132,7 +129,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(376, 139);
+            label5.Location = new Point(376, 117);
             label5.Name = "label5";
             label5.Size = new Size(103, 20);
             label5.TabIndex = 12;
@@ -143,7 +140,7 @@
             // 
             txtPantaila.CharacterCasing = CharacterCasing.Upper;
             txtPantaila.Cursor = Cursors.IBeam;
-            txtPantaila.Location = new Point(172, 132);
+            txtPantaila.Location = new Point(172, 110);
             txtPantaila.Name = "txtPantaila";
             txtPantaila.Size = new Size(171, 27);
             txtPantaila.TabIndex = 13;
@@ -152,7 +149,7 @@
             // 
             txtDeskribapena.CharacterCasing = CharacterCasing.Upper;
             txtDeskribapena.Cursor = Cursors.IBeam;
-            txtDeskribapena.Location = new Point(492, 136);
+            txtDeskribapena.Location = new Point(492, 114);
             txtDeskribapena.Name = "txtDeskribapena";
             txtDeskribapena.Size = new Size(171, 27);
             txtDeskribapena.TabIndex = 14;
@@ -209,22 +206,30 @@
             dataGridView1.Size = new Size(775, 169);
             dataGridView1.TabIndex = 19;
             // 
-            // mySqlDataReaderBindingSource
-            // 
-            mySqlDataReaderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
-            // 
             // listBoxGailuMota
             // 
             listBoxGailuMota.FormattingEnabled = true;
             listBoxGailuMota.ItemHeight = 20;
-            listBoxGailuMota.Location = new Point(172, 43);
+            listBoxGailuMota.Location = new Point(172, 20);
             listBoxGailuMota.Name = "listBoxGailuMota";
             listBoxGailuMota.Size = new Size(171, 24);
             listBoxGailuMota.TabIndex = 20;
             // 
-            // mySqlDataReaderBindingSource1
+            // dateTimePicker1
             // 
-            mySqlDataReaderBindingSource1.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
+            dateTimePicker1.Location = new Point(172, 163);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(307, 27);
+            dateTimePicker1.TabIndex = 21;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(44, 170);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 20);
+            label6.TabIndex = 22;
+            label6.Text = "Erosketa Data:";
             // 
             // bErregistroBerria
             // 
@@ -232,6 +237,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(799, 469);
+            Controls.Add(label6);
+            Controls.Add(dateTimePicker1);
             Controls.Add(listBoxGailuMota);
             Controls.Add(dataGridView1);
             Controls.Add(btIrten);
@@ -260,8 +267,6 @@
             TopMost = true;
             Load += bErregistroBerria_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)mySqlDataReaderBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,8 +289,8 @@
         private Button btBajaEman;
         private Button btIrten;
         private DataGridView dataGridView1;
-        private BindingSource mySqlDataReaderBindingSource;
         private ListBox listBoxGailuMota;
-        private BindingSource mySqlDataReaderBindingSource1;
+        private DateTimePicker dateTimePicker1;
+        private Label label6;
     }
 }

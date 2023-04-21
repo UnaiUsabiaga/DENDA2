@@ -44,7 +44,7 @@ namespace ERRONKA7
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            listBoxGailuMota.DataSource= dt;
+            listBoxGailuMota.DataSource = dt;
             listBoxGailuMota.DisplayMember = "gailuMota";
 
         }
@@ -80,7 +80,7 @@ namespace ERRONKA7
             string mintegia = listBoxMintegi.Text;
 
 
-            string insertSententzia = "INSERT INTO produktutaula (idMarka,idMintegia,modeloa,pantailaTamaina,deskribapena,Kantitatea) VALUES ('" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "')";
+            string insertSententzia = "INSERT INTO produktutaula (marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData) VALUES ('" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "')";
 
             MySqlCommand command = new MySqlCommand(insertSententzia, Konexioa.connection);
 
