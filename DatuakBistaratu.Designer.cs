@@ -43,7 +43,6 @@
             comboBoxMintegia = new ComboBox();
             comboBoxEzaugarria = new ComboBox();
             comboBoxEzaugarriPosibleak = new ComboBox();
-            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).BeginInit();
             SuspendLayout();
             // 
@@ -76,9 +75,19 @@
             // 
             // dataGridBistaratu
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 192, 128);
+            dataGridBistaratu.AllowUserToAddRows = false;
+            dataGridBistaratu.AllowUserToDeleteRows = false;
+            dataGridBistaratu.AllowUserToResizeColumns = false;
+            dataGridBistaratu.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 192, 255);
+            dataGridViewCellStyle1.NullValue = "N/A";
+            dataGridViewCellStyle1.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridBistaratu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridBistaratu.BackgroundColor = SystemColors.Control;
+            dataGridBistaratu.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridBistaratu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridBistaratu.GridColor = SystemColors.Control;
             dataGridBistaratu.Location = new Point(13, 197);
             dataGridBistaratu.Name = "dataGridBistaratu";
             dataGridBistaratu.ReadOnly = true;
@@ -115,6 +124,7 @@
             btBistaratu.TabIndex = 24;
             btBistaratu.Text = "Bistaratu";
             btBistaratu.UseVisualStyleBackColor = false;
+            btBistaratu.Click += btBistaratu_Click;
             // 
             // btReset
             // 
@@ -175,22 +185,12 @@
             comboBoxEzaugarriPosibleak.Size = new Size(175, 28);
             comboBoxEzaugarriPosibleak.TabIndex = 30;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(73, 73);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 104);
-            listBox1.TabIndex = 31;
-            // 
             // datuakBistaratu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
             Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
             Controls.Add(comboBoxMintegia);
@@ -235,6 +235,5 @@
         private ComboBox comboBoxMintegia;
         private ComboBox comboBoxEzaugarria;
         private ComboBox comboBoxEzaugarriPosibleak;
-        private ListBox listBox1;
     }
 }
