@@ -39,7 +39,7 @@ namespace ERRONKA7
 
             ezaugarriPosibleakLortu();
 
-            
+
 
             dataGridBistaratu.DataSource = null;
 
@@ -128,6 +128,7 @@ namespace ERRONKA7
 
             comboBoxGailuMota.DataSource = dt;
             comboBoxGailuMota.DisplayMember = "gailuMota";
+            comboBoxGailuMota.ValueMember = "gailuMota";
             comboBoxGailuMota.SelectedItem = null;
         }
 
@@ -186,6 +187,30 @@ namespace ERRONKA7
             comboBoxEzaugarriPosibleak.DataSource = dt4;
 
             comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
+
+        }
+
+        private void btBistaratu_Click(object sender, EventArgs e)
+        {
+
+            string selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
+
+            // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
+            string consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @Categoria";
+
+            // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
+            MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);
+            komandoa.Parameters.AddWithValue("@Categoria", selectgailuMota);
+
+            // DataAdapter objektu bat sortu eta DataTable objektu bat datu egituraz betetzeko SQL komando objektua erabiliz
+            MySqlDataAdapter adapter = new MySqlDataAdapter(komandoa);
+            DataTable taula = new DataTable();
+            adapter.Fill(taula);
+
+            DataTable tabla = new DataTable();
+            tabla.Clear(); // Borra los datos actuales del DataTable
+            adapter.Fill(tabla);
+            dataGridBistaratu.DataSource = tabla;
 
         }
     }
