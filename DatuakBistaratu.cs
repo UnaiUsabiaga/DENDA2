@@ -87,32 +87,38 @@ namespace ERRONKA7
             da.Fill(dt);
             dataGridBistaratu.DataSource = dt;
         }
-
         private void datuakBistaratu_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
-
         private void btIrten_Click(object sender, EventArgs e)
         {
             this.Close();
 
             Program.loginForm.Show();
         }
-
         private void btReset_Click(object sender, EventArgs e)
         {
             comboBoxGailuMota.SelectedItem = null;
             comboBoxEzaugarria.SelectedItem = null;
             comboBoxMintegia.SelectedItem = null;
         }
-
         private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxGailuMota.SelectedItem == null)
-            {
-                datuakKargatu();
-            }
+            //if (comboBoxGailuMota.SelectedItem == null)
+            //{
+            //    datuakKargatu();
+            //}
+            //else
+            //{
+            //    string strGailuMota = comboBoxGailuMota.SelectedItem.ToString();
+
+            //    //string selectDataGrid = "SELECT * FROM produktutaula WHERE gailuMota ="+ strGailuMota;
+
+            //    string selectDataGrid = "SELECT * FROM produktutaula";
+
+            //    datuTaulaKargatu(selectDataGrid);
+            //}
         }
         private void gailuMotakLortu()
         {
@@ -149,7 +155,6 @@ namespace ERRONKA7
 
             comboBoxMintegia.DisplayMember = "izena";
         }
-
         private void ezaugarriakLortu()
         {
             string selectEzaugarria = "SELECT * FROM produktutaula";
@@ -168,7 +173,6 @@ namespace ERRONKA7
                 comboBoxEzaugarria.Items.Add(dt3.Columns[i].ColumnName);
             }
         }
-
         private void ezaugarriPosibleakLortu()
         {
             comboBoxEzaugarriPosibleak.DataSource = null;
@@ -188,6 +192,26 @@ namespace ERRONKA7
 
             comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
 
+        }
+        private void datuTaulaKargatu(string select)
+        {
+
+            dataGridBistaratu.DataSource = null;
+
+            string selectDataGrid = select;
+
+            MySqlCommand cmd5 = new MySqlCommand(selectDataGrid, Konexioa.connection);
+            MySqlDataAdapter da5 = new MySqlDataAdapter(cmd5);
+
+            DataTable dt5 = new DataTable();
+            da5.Fill(dt5);
+
+            dataGridBistaratu.DataSource = dt5;
+        }
+
+        private void btBistaratu_Click(object sender, EventArgs e)
+        {
+            string strGailuMota = comboBoxGailuMota.SelectedValue.ToString();
         }
 
         private void btBistaratu_Click(object sender, EventArgs e)

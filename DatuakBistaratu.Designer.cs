@@ -43,7 +43,6 @@
             comboBoxMintegia = new ComboBox();
             comboBoxEzaugarria = new ComboBox();
             comboBoxEzaugarriPosibleak = new ComboBox();
-            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).BeginInit();
             SuspendLayout();
             // 
@@ -76,9 +75,20 @@
             // 
             // dataGridBistaratu
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 192, 128);
+            dataGridBistaratu.AllowUserToAddRows = false;
+            dataGridBistaratu.AllowUserToDeleteRows = false;
+            dataGridBistaratu.AllowUserToResizeColumns = false;
+            dataGridBistaratu.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 192, 255);
+            dataGridViewCellStyle1.NullValue = "N/A";
+            dataGridViewCellStyle1.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridBistaratu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridBistaratu.BackgroundColor = SystemColors.Control;
+            dataGridBistaratu.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridBistaratu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridBistaratu.GridColor = SystemColors.Control;
+            dataGridBistaratu.Location = new Point(13, 197);
             dataGridBistaratu.Location = new Point(11, 148);
             dataGridBistaratu.Margin = new Padding(3, 2, 3, 2);
             dataGridBistaratu.Name = "dataGridBistaratu";
@@ -189,11 +199,10 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(64, 55);
-            listBox1.Margin = new Padding(3, 2, 3, 2);
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(73, 73);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(132, 79);
+            listBox1.Size = new Size(150, 104);
             listBox1.TabIndex = 31;
             // 
             // datuakBistaratu
@@ -201,7 +210,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(702, 344);
+            ClientSize = new Size(800, 450);
             Controls.Add(listBox1);
             Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
@@ -248,6 +257,5 @@
         private ComboBox comboBoxMintegia;
         private ComboBox comboBoxEzaugarria;
         private ComboBox comboBoxEzaugarriPosibleak;
-        private ListBox listBox1;
     }
 }
