@@ -202,7 +202,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
             Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
             Controls.Add(comboBoxMintegia);

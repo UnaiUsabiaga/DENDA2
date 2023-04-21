@@ -20,11 +20,7 @@ namespace ERRONKA7
         {
             Konexioa konexioa = new Konexioa();
             konexioEgokia(konexioa.konexioaBurutu(erabiltzailea, textPasahitza.Text));
-
- 
-            
-
-
+                  
         }
         private void konexioEgokia(Boolean konexioa)
         {

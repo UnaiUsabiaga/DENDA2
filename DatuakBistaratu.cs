@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,7 +103,9 @@ namespace ERRONKA7
             comboBoxGailuMota.SelectedItem = null;
             comboBoxEzaugarria.SelectedItem = null;
             comboBoxMintegia.SelectedItem = null;
-        }
+            dataGridBistaratu.DataSource = null;
+        
+    }
         private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (comboBoxGailuMota.SelectedItem == null)
@@ -211,24 +214,29 @@ namespace ERRONKA7
 
         private void btBistaratu_Click(object sender, EventArgs e)
         {
-            string selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
+            string selectgailuMota="";
+            string consultaSql = "SELECT * FROM produktutaula";
 
-            // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
-            string consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @Categoria";
+            if (comboBoxGailuMota.SelectedValue != null)
+            {
+                selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
+                
+                // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
+                consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota";
+            }
+            
+                    
 
             // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
             MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);
-            komandoa.Parameters.AddWithValue("@Categoria", selectgailuMota);
+            komandoa.Parameters.AddWithValue("@gailuMota", selectgailuMota);
 
             // DataAdapter objektu bat sortu eta DataTable objektu bat datu egituraz betetzeko SQL komando objektua erabiliz
             MySqlDataAdapter adapter = new MySqlDataAdapter(komandoa);
             DataTable taula = new DataTable();
             adapter.Fill(taula);
 
-            DataTable tabla = new DataTable();
-            tabla.Clear(); // Borra los datos actuales del DataTable
-            adapter.Fill(tabla);
-            dataGridBistaratu.DataSource = tabla;
+            dataGridBistaratu.DataSource = taula;
         }
     }
 }
