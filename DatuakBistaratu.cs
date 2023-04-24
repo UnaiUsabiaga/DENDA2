@@ -195,7 +195,7 @@ namespace ERRONKA7
                 da4.Fill(dt4);
                 comboBoxEzaugarriPosibleak.DataSource = dt4;
 
-                comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
+                comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.SelectedValue.ToString();
             }
 
 
@@ -235,6 +235,14 @@ namespace ERRONKA7
             adapter.Fill(taula);
 
             dataGridBistaratu.DataSource = taula;
+        }
+
+        private void comboBoxEzaugarria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ezaugarriPosibleakLortu();
+
+            comboBoxEzaugarriPosibleak.Show();
+
         }
     }
 }

@@ -41,6 +41,7 @@
             comboBoxMintegia = new ComboBox();
             comboBoxEzaugarria = new ComboBox();
             comboBoxEzaugarriPosibleak = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             // mintegia
             // 
             mintegia.AutoSize = true;
-            mintegia.Location = new Point(509, 29);
+            mintegia.Location = new Point(23, 105);
             mintegia.Name = "mintegia";
             mintegia.Size = new Size(71, 20);
             mintegia.TabIndex = 5;
@@ -144,7 +145,7 @@
             comboBoxMintegia.Cursor = Cursors.Hand;
             comboBoxMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMintegia.FormattingEnabled = true;
-            comboBoxMintegia.Location = new Point(586, 21);
+            comboBoxMintegia.Location = new Point(114, 97);
             comboBoxMintegia.Name = "comboBoxMintegia";
             comboBoxMintegia.Size = new Size(172, 28);
             comboBoxMintegia.TabIndex = 28;
@@ -153,21 +154,30 @@
             // 
             comboBoxEzaugarria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEzaugarria.FormattingEnabled = true;
-            comboBoxEzaugarria.Location = new Point(302, 21);
+            comboBoxEzaugarria.Location = new Point(114, 59);
             comboBoxEzaugarria.Name = "comboBoxEzaugarria";
-            comboBoxEzaugarria.Size = new Size(175, 28);
+            comboBoxEzaugarria.Size = new Size(172, 28);
             comboBoxEzaugarria.TabIndex = 29;
+            comboBoxEzaugarria.SelectedIndexChanged += comboBoxEzaugarria_SelectedIndexChanged;
             // 
             // comboBoxEzaugarriPosibleak
             // 
             comboBoxEzaugarriPosibleak.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxEzaugarriPosibleak.Enabled = false;
             comboBoxEzaugarriPosibleak.FormattingEnabled = true;
-            comboBoxEzaugarriPosibleak.Location = new Point(302, 73);
+            comboBoxEzaugarriPosibleak.Location = new Point(342, 64);
             comboBoxEzaugarriPosibleak.Name = "comboBoxEzaugarriPosibleak";
             comboBoxEzaugarriPosibleak.Size = new Size(175, 28);
             comboBoxEzaugarriPosibleak.TabIndex = 30;
             comboBoxEzaugarriPosibleak.Visible = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(23, 67);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 20);
+            label1.TabIndex = 31;
+            label1.Text = "Ezaugarria:";
             // 
             // datuakBistaratu
             // 
@@ -175,6 +185,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 448);
+            Controls.Add(label1);
             Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
             Controls.Add(comboBoxMintegia);
@@ -214,5 +225,6 @@
         private ComboBox comboBoxMintegia;
         private ComboBox comboBoxEzaugarria;
         private ComboBox comboBoxEzaugarriPosibleak;
+        private Label label1;
     }
 }
