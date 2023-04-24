@@ -104,8 +104,8 @@ namespace ERRONKA7
             comboBoxEzaugarria.SelectedItem = null;
             comboBoxMintegia.SelectedItem = null;
             dataGridBistaratu.DataSource = null;
-        
-    }
+
+        }
         private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (comboBoxGailuMota.SelectedItem == null)
@@ -160,7 +160,7 @@ namespace ERRONKA7
         }
         private void ezaugarriakLortu()
         {
-            string selectEzaugarria = "SELECT * FROM produktutaula";
+            string selectEzaugarria = "SELECT marka,modeloa,pantailaTamaina,kantitatea,erosketaData FROM produktutaula";
 
             comboBoxEzaugarria.DataSource = null;
 
@@ -178,10 +178,10 @@ namespace ERRONKA7
         }
         private void ezaugarriPosibleakLortu()
         {
-            if (comboBoxGailuMota.SelectedValue != null)
+            if (comboBoxGailuMota.SelectedItem != null)
             {
                 comboBoxEzaugarriPosibleak.DataSource = null;
-                string ezaugarriAukeraketa = comboBoxEzaugarria.Text;
+                string ezaugarriAukeraketa = comboBoxEzaugarria.SelectedValue.ToString();
                 string gailuMotaAukeraketa = comboBoxGailuMota.SelectedValue.ToString();
 
                 string selectEzaugarriPosibleak = "SELECT DISTINCT" + ezaugarriAukeraketa + " FROM produktutaula WHERE gailuMota =" + gailuMotaAukeraketa + "";
@@ -196,25 +196,25 @@ namespace ERRONKA7
                 comboBoxEzaugarriPosibleak.DataSource = dt4;
 
                 comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.Text;
-            }         
-            
+            }
+
 
         }
 
         private void btBistaratu_Click(object sender, EventArgs e)
         {
-            string selectgailuMota="";
+            string selectgailuMota = "";
             string selectEzaugarria = "";
             string consultaSql = "SELECT * FROM produktutaula";
 
             if (comboBoxGailuMota.SelectedValue != null)
             {
                 selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
-                
+
                 // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
                 consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota";
 
-                if(comboBoxEzaugarria.SelectedValue != null)
+                if (comboBoxEzaugarria.SelectedValue != null)
                 {
                     selectEzaugarria = comboBoxEzaugarria.SelectedValue.ToString();
 
@@ -222,12 +222,12 @@ namespace ERRONKA7
                 }
             }
 
-                               
+
 
             // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
             MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);
             komandoa.Parameters.AddWithValue("@gailuMota", selectgailuMota);
-            komandoa.Parameters.AddWithValue("@ezaugarria",selectEzaugarria);
+            komandoa.Parameters.AddWithValue("@ezaugarria", selectEzaugarria);
 
             // DataAdapter objektu bat sortu eta DataTable objektu bat datu egituraz betetzeko SQL komando objektua erabiliz
             MySqlDataAdapter adapter = new MySqlDataAdapter(komandoa);
