@@ -42,6 +42,10 @@
             comboBoxEzaugarria = new ComboBox();
             comboBoxEzaugarriPosibleak = new ComboBox();
             label1 = new Label();
+            hasieraDataPicker = new DateTimePicker();
+            amaieraDataPicker = new DateTimePicker();
+            hasieraData = new Label();
+            amaieraData = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridBistaratu).BeginInit();
             SuspendLayout();
             // 
@@ -164,7 +168,7 @@
             // 
             comboBoxEzaugarriPosibleak.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEzaugarriPosibleak.FormattingEnabled = true;
-            comboBoxEzaugarriPosibleak.Location = new Point(342, 64);
+            comboBoxEzaugarriPosibleak.Location = new Point(318, 59);
             comboBoxEzaugarriPosibleak.Name = "comboBoxEzaugarriPosibleak";
             comboBoxEzaugarriPosibleak.Size = new Size(175, 28);
             comboBoxEzaugarriPosibleak.TabIndex = 30;
@@ -179,12 +183,52 @@
             label1.TabIndex = 31;
             label1.Text = "Ezaugarria:";
             // 
+            // hasieraDataPicker
+            // 
+            hasieraDataPicker.Location = new Point(426, 32);
+            hasieraDataPicker.Name = "hasieraDataPicker";
+            hasieraDataPicker.Size = new Size(307, 27);
+            hasieraDataPicker.TabIndex = 32;
+            hasieraDataPicker.Visible = false;
+            // 
+            // amaieraDataPicker
+            // 
+            amaieraDataPicker.Location = new Point(426, 95);
+            amaieraDataPicker.Name = "amaieraDataPicker";
+            amaieraDataPicker.Size = new Size(307, 27);
+            amaieraDataPicker.TabIndex = 33;
+            amaieraDataPicker.Visible = false;
+            // 
+            // hasieraData
+            // 
+            hasieraData.AutoSize = true;
+            hasieraData.Location = new Point(426, 9);
+            hasieraData.Name = "hasieraData";
+            hasieraData.Size = new Size(96, 20);
+            hasieraData.TabIndex = 34;
+            hasieraData.Text = "Hasiera data:";
+            hasieraData.Visible = false;
+            // 
+            // amaieraData
+            // 
+            amaieraData.AutoSize = true;
+            amaieraData.Location = new Point(426, 67);
+            amaieraData.Name = "amaieraData";
+            amaieraData.Size = new Size(102, 20);
+            amaieraData.TabIndex = 35;
+            amaieraData.Text = "Amaiera data:";
+            amaieraData.Visible = false;
+            // 
             // datuakBistaratu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 448);
+            Controls.Add(amaieraData);
+            Controls.Add(hasieraData);
+            Controls.Add(amaieraDataPicker);
+            Controls.Add(hasieraDataPicker);
             Controls.Add(label1);
             Controls.Add(comboBoxEzaugarriPosibleak);
             Controls.Add(comboBoxEzaugarria);
@@ -226,5 +270,9 @@
         private ComboBox comboBoxEzaugarria;
         private ComboBox comboBoxEzaugarriPosibleak;
         private Label label1;
+        private DateTimePicker hasieraDataPicker;
+        private DateTimePicker amaieraDataPicker;
+        private Label hasieraData;
+        private Label amaieraData;
     }
 }

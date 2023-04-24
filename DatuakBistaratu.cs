@@ -239,9 +239,17 @@ namespace ERRONKA7
 
         private void comboBoxEzaugarria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ezaugarriPosibleakLortu();
+            ezaugarriPosibleakLortu(); 
 
             comboBoxEzaugarriPosibleak.Show();
+
+            if (comboBoxEzaugarria.SelectedValue.ToString() == "erosketa")
+            {
+                hasieraData.Show();
+                hasieraDataPicker.Show();
+                amaieraData.Show();
+                amaieraDataPicker.Show();
+            }
 
         }
     }
