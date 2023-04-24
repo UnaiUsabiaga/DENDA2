@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ERRONKA7
 {
@@ -17,11 +18,6 @@ namespace ERRONKA7
         public datuakBistaratu()
         {
             InitializeComponent();
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -56,38 +52,6 @@ namespace ERRONKA7
 
 
         }
-        private void datuakKargatu(string select)
-        {
-
-            dataGridBistaratu.DataSource = null;
-
-            string sql = select;
-            MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridBistaratu.DataSource = dt;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        public void datuakKargatu()
-        {
-            // Konexioa.connection.Open();
-            dataGridBistaratu.DataSource = null;
-
-            string sql = "SELECT idProduktua,gailuMota,marka,mintegia,modeloa,pantailaTamaina,kantitatea,deskribapena,kantitatea,erosketaData FROM produktutaula";
-
-            MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridBistaratu.DataSource = dt;
-        }
         private void datuakBistaratu_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -105,6 +69,12 @@ namespace ERRONKA7
             comboBoxMintegia.SelectedItem = null;
             dataGridBistaratu.DataSource = null;
 
+            hasieraData.Hide();
+            hasieraDataPicker.Hide();
+            amaieraData.Hide();
+            amaieraDataPicker.Hide();
+
+            string consultaSql = "SELECT * FROM produktutaula";
         }
         private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -181,10 +151,10 @@ namespace ERRONKA7
             if (comboBoxGailuMota.SelectedItem != null)
             {
                 comboBoxEzaugarriPosibleak.DataSource = null;
-                string ezaugarriAukeraketa = comboBoxEzaugarria.SelectedValue.ToString();
+                string ezaugarriAukeraketa = comboBoxEzaugarria.SelectedItem.ToString();
                 string gailuMotaAukeraketa = comboBoxGailuMota.SelectedValue.ToString();
 
-                string selectEzaugarriPosibleak = "SELECT DISTINCT" + ezaugarriAukeraketa + " FROM produktutaula WHERE gailuMota =" + gailuMotaAukeraketa + "";
+                string selectEzaugarriPosibleak = "SELECT DISTINCT " + ezaugarriAukeraketa + " FROM produktutaula WHERE gailuMota = '" + gailuMotaAukeraketa + "'";
 
 
                 MySqlCommand cmd4 = new MySqlCommand(selectEzaugarriPosibleak, Konexioa.connection);
@@ -195,10 +165,8 @@ namespace ERRONKA7
                 da4.Fill(dt4);
                 comboBoxEzaugarriPosibleak.DataSource = dt4;
 
-                comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.SelectedValue.ToString();
+                comboBoxEzaugarriPosibleak.DisplayMember = comboBoxEzaugarria.SelectedItem.ToString();
             }
-
-
         }
 
         private void btBistaratu_Click(object sender, EventArgs e)
@@ -212,17 +180,49 @@ namespace ERRONKA7
                 selectgailuMota = comboBoxGailuMota.SelectedValue.ToString();
 
                 // Hautatutako balioari dagokion WHERE klausea barne hartzen duen SQL kontsulta sortu
-                consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota";
+                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota";
+
+                if (comboBoxMintegia.SelectedValue != null)
+                {
+                    //string mintegia = comboBoxMintegia.SelectedItem.ToString();
+                    string mintegia = comboBoxMintegia.Text;
+                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND mintegia='"+mintegia+"'";
+
+                }
 
                 if (comboBoxEzaugarria.SelectedValue != null)
                 {
-                    selectEzaugarria = comboBoxEzaugarria.SelectedValue.ToString();
+                    selectEzaugarria = comboBoxEzaugarria.Text;
+                    string ezaugarriPosiblea = comboBoxEzaugarriPosibleak.Text;
 
-                    consultaSql = "SELECT * FROM produktutaula WHERE gailuMota = @gailuMota AND ezaugarria= @ezaugarria";
+                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND " + selectEzaugarria + "='" + ezaugarriPosiblea + "'";
+
+                    if (comboBoxMintegia.SelectedValue != null)
+                    {
+                        //string mintegia = comboBoxMintegia.SelectedItem.ToString();
+                        string mintegia = comboBoxMintegia.Text;
+                        consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND " + selectEzaugarria + "='" + ezaugarriPosiblea + "' AND mintegia='"+mintegia+"'";
+
+                    }
                 }
+
+            }
+            else if (hasieraDataPicker.Value != hasieraDataPicker.Value.ToLocalTime())
+            {
+                string hasieraData = hasieraDataPicker.Value.Year+"-"+hasieraDataPicker.Value.Month+"-"+hasieraDataPicker.Value.Day;
+
+                string amaieraData = amaieraDataPicker.Value.Year + "-" + amaieraDataPicker.Value.Month + "-" + amaieraDataPicker.Value.Day;
+
+                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE erosketaData BETWEEN '"+hasieraData+"' AND '"+amaieraData+"'";
+
             }
 
-
+            else if (comboBoxMintegia.SelectedValue != null)
+            {
+                //string mintegia = comboBoxMintegia.SelectedItem.ToString();
+                string mintegia = comboBoxMintegia.Text;
+                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE mintegia = '" + mintegia + "'";
+            }
 
             // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
             MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);
@@ -239,17 +239,42 @@ namespace ERRONKA7
 
         private void comboBoxEzaugarria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ezaugarriPosibleakLortu(); 
+            ezaugarriPosibleakLortu();
 
             comboBoxEzaugarriPosibleak.Show();
 
-            if (comboBoxEzaugarria.SelectedValue.ToString() == "erosketa")
+            try
             {
-                hasieraData.Show();
-                hasieraDataPicker.Show();
-                amaieraData.Show();
-                amaieraDataPicker.Show();
+
+                if (comboBoxEzaugarria.SelectedItem.ToString() == "erosketaData" && comboBoxEzaugarria.SelectedItem.ToString() != null)
+                {
+                    comboBoxEzaugarriPosibleak.Hide();
+                    hasieraData.Show();
+                    hasieraDataPicker.Show();
+                    amaieraData.Show();
+                    amaieraDataPicker.Show();
+                }
+                else
+                {
+                    hasieraData.Hide();
+                    hasieraDataPicker.Hide();
+                    amaieraData.Hide();
+                    amaieraDataPicker.Hide();
+                }
+
             }
+            catch (Exception ex)
+            {
+                if (comboBoxEzaugarria.SelectedItem.ToString == null)
+                {
+                    hasieraData.Hide();
+                    hasieraDataPicker.Hide();
+                    amaieraData.Hide();
+                    amaieraDataPicker.Hide();
+                }
+            }
+
+
 
         }
     }

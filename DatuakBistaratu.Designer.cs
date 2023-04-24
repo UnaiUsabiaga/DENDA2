@@ -146,7 +146,6 @@
             // 
             // comboBoxMintegia
             // 
-            comboBoxMintegia.Cursor = Cursors.Hand;
             comboBoxMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMintegia.FormattingEnabled = true;
             comboBoxMintegia.Location = new Point(114, 97);
@@ -247,7 +246,6 @@
             MinimizeBox = false;
             MinimumSize = new Size(818, 495);
             Name = "datuakBistaratu";
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Datuak Bistaratu";
             Load += datuakBistaratu_Load;
