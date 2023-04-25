@@ -31,6 +31,8 @@ namespace ERRONKA7
             datuakKargatu();
 
             gailuMotakLortu();
+
+            erosketaDataPicker.MaxDate = DateTime.Now;
         }
 
         private void button3_Click(object sender, EventArgs e)

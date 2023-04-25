@@ -83,10 +83,9 @@
             // 
             // listBoxMintegi
             // 
-            listBoxMintegi.DisplayMember = "Guztiak";
             listBoxMintegi.FormattingEnabled = true;
             listBoxMintegi.ItemHeight = 20;
-            listBoxMintegi.Items.AddRange(new object[] { "Guztiak", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa", "Zuzendaritza" });
+            listBoxMintegi.Items.AddRange(new object[] { "Zuzendaritza", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa" });
             listBoxMintegi.Location = new Point(555, 24);
             listBoxMintegi.Name = "listBoxMintegi";
             listBoxMintegi.Size = new Size(171, 24);

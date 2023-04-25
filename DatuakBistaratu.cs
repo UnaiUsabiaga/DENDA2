@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.VisualBasic;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -212,7 +213,6 @@ namespace ERRONKA7
 
                     }
                 }
-
             }
             else if (hasieraDataPicker.Value != hasieraDataPicker.Value.ToLocalTime())
             {
@@ -223,8 +223,14 @@ namespace ERRONKA7
                 consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE erosketaData BETWEEN '" + hasieraData + "' AND '" + amaieraData + "'";
 
             }
+            else
+            {
+                string oraingoData = hasieraDataPicker.Value.Year + "-" + hasieraDataPicker.Value.Month + "-" + hasieraDataPicker.Value.Day;
+                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE erosketaData = '" + oraingoData + "'";
 
-            else if (comboBoxMintegia.SelectedValue != null)
+            }
+
+            if (comboBoxMintegia.SelectedValue != null)
             {
                 //string mintegia = comboBoxMintegia.SelectedItem.ToString();
                 string mintegia = comboBoxMintegia.Text;
@@ -239,6 +245,7 @@ namespace ERRONKA7
             // DataAdapter objektu bat sortu eta DataTable objektu bat datu egituraz betetzeko SQL komando objektua erabiliz
             MySqlDataAdapter adapter = new MySqlDataAdapter(komandoa);
             DataTable taula = new DataTable();
+            
             adapter.Fill(taula);
 
             dataGridBistaratu.DataSource = taula;
