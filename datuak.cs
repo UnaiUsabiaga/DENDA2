@@ -26,27 +26,11 @@ namespace ERRONKA7
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void bErregistroBerria_Load(object sender, EventArgs e)
         {
             datuakKargatu();
 
-            listBoxGailuMota.DataSource = null;
-
-            string sql = "SELECT gailuMota FROM gailumotataula";
-
-            MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            listBoxGailuMota.DataSource = dt;
-            listBoxGailuMota.DisplayMember = "gailuMota";
-
+            gailuMotakLortu();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,7 +44,7 @@ namespace ERRONKA7
             // Konexioa.connection.Open();
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT idProduktua,izena,marka,modeloa,pantailaTamaina,kantitatea,azalpena FROM produktuTaula";
+            string sql = "SELECT gailumota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea FROM produktutaula";
 
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -70,17 +54,49 @@ namespace ERRONKA7
             dataGridView1.DataSource = dt;
         }
 
+        private void gailuMotakLortu()
+        {
+            comboBoxGailuMota.DataSource = null;
+
+            string selectGailuMota = "SELECT gailuMota FROM gailumotataula";
+
+            MySqlCommand cmd = new MySqlCommand(selectGailuMota, Konexioa.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            comboBoxGailuMota.DataSource = dt;
+            comboBoxGailuMota.DisplayMember = "gailuMota";
+            comboBoxGailuMota.ValueMember = "gailuMota";
+            comboBoxGailuMota.SelectedItem = null;
+        }
+
         private void btErregistroBerria_Click(object sender, EventArgs e)
         {
 
             string modeloa = txtModeloa.Text;
-            int kantitatea = listBoxKantitatea.SelectedIndex;
             string pantailaTamaina = txtPantaila.Text;
             string deskribapena = txtDeskribapena.Text;
-            string mintegia = listBoxMintegi.Text;
+            string marka = txtMarka.Text;
+            string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
+
+            string mintegia = "";
+            if (listBoxMintegi.SelectedItem != null)
+            {
+                mintegia = listBoxMintegi.SelectedItem.ToString();
+            }
+
+            string kantitatea = "";
+            if (listBoxKantitatea.SelectedItem != null)
+            {
+                kantitatea = listBoxKantitatea.SelectedValue.ToString();
+            }
+
+            string erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
 
 
-            string insertSententzia = "INSERT INTO produktutaula (marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData) VALUES ('" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "')";
+            string insertSententzia = "INSERT INTO produktutaula (gailuMota,marka,modeloa,mintegia,pantailaTamaina,deskribapena,kantitatea,erosketaData) VALUES ('" + gailuMota + "','" + marka + "','" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "','" + erosketaData + "')";
 
             MySqlCommand command = new MySqlCommand(insertSententzia, Konexioa.connection);
 
@@ -91,11 +107,10 @@ namespace ERRONKA7
                 MessageBox.Show("Erregistroa ondo burutu da!");
 
                 datuakKargatu();
-
             }
-            catch
+            catch (MySqlException ex)
             {
-                MessageBox.Show("Errorea izan da erregistroa burutzean");
+                MessageBox.Show("Errorea izan da erregistroa burutzean: " + ex.Message);
             }
 
 

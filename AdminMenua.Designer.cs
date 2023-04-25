@@ -33,6 +33,8 @@
             BTdatuakBistaratu = new Button();
             BTdatuakEguneratu = new Button();
             btIrten = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // adminMenua
@@ -86,12 +88,25 @@
             btIrten.UseVisualStyleBackColor = false;
             btIrten.Click += btIrten_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = null;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(689, 346);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(99, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
             // adminMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(btIrten);
             Controls.Add(BTdatuakEguneratu);
             Controls.Add(BTdatuakBistaratu);
@@ -104,6 +119,7 @@
             Name = "adminMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrari Menua";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,5 +130,6 @@
         private Button BTdatuakBistaratu;
         private Button BTdatuakEguneratu;
         private Button btIrten;
+        private PictureBox pictureBox1;
     }
 }

@@ -36,7 +36,7 @@ namespace ERRONKA7
 
             ezaugarriPosibleakLortu();
 
-
+            comboBoxMintegia.SelectedItem = null;
 
             dataGridBistaratu.DataSource = null;
 
@@ -64,16 +64,23 @@ namespace ERRONKA7
         }
         private void btReset_Click(object sender, EventArgs e)
         {
-            comboBoxGailuMota.SelectedItem = null;
-            comboBoxEzaugarria.SelectedItem = null;
-            comboBoxMintegia.SelectedItem = null;
-            dataGridBistaratu.DataSource = null;
+            try
+            {
+                comboBoxGailuMota.SelectedItem = null;
+                comboBoxMintegia.SelectedItem = null;
+                dataGridBistaratu.DataSource = null;
+                comboBoxEzaugarria.DisplayMember = null;
 
-            hasieraData.Hide();
-            hasieraDataPicker.Hide();
-            amaieraData.Hide();
-            amaieraDataPicker.Hide();
+                hasieraData.Hide();
+                hasieraDataPicker.Hide();
+                amaieraData.Hide();
+                amaieraDataPicker.Hide();
+            }
+            catch (NullReferenceException)
+            {
 
+
+            }
             string consultaSql = "SELECT * FROM produktutaula";
         }
         private void comboBoxGailuMota_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,11 +193,11 @@ namespace ERRONKA7
                 {
                     //string mintegia = comboBoxMintegia.SelectedItem.ToString();
                     string mintegia = comboBoxMintegia.Text;
-                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND mintegia='"+mintegia+"'";
+                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND mintegia='" + mintegia + "'";
 
                 }
 
-                if (comboBoxEzaugarria.SelectedValue != null)
+                if (comboBoxEzaugarria.SelectedItem != null)
                 {
                     selectEzaugarria = comboBoxEzaugarria.Text;
                     string ezaugarriPosiblea = comboBoxEzaugarriPosibleak.Text;
@@ -201,7 +208,7 @@ namespace ERRONKA7
                     {
                         //string mintegia = comboBoxMintegia.SelectedItem.ToString();
                         string mintegia = comboBoxMintegia.Text;
-                        consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND " + selectEzaugarria + "='" + ezaugarriPosiblea + "' AND mintegia='"+mintegia+"'";
+                        consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND " + selectEzaugarria + "='" + ezaugarriPosiblea + "' AND mintegia='" + mintegia + "'";
 
                     }
                 }
@@ -209,11 +216,11 @@ namespace ERRONKA7
             }
             else if (hasieraDataPicker.Value != hasieraDataPicker.Value.ToLocalTime())
             {
-                string hasieraData = hasieraDataPicker.Value.Year+"-"+hasieraDataPicker.Value.Month+"-"+hasieraDataPicker.Value.Day;
+                string hasieraData = hasieraDataPicker.Value.Year + "-" + hasieraDataPicker.Value.Month + "-" + hasieraDataPicker.Value.Day;
 
                 string amaieraData = amaieraDataPicker.Value.Year + "-" + amaieraDataPicker.Value.Month + "-" + amaieraDataPicker.Value.Day;
 
-                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE erosketaData BETWEEN '"+hasieraData+"' AND '"+amaieraData+"'";
+                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE erosketaData BETWEEN '" + hasieraData + "' AND '" + amaieraData + "'";
 
             }
 
@@ -245,8 +252,11 @@ namespace ERRONKA7
 
             try
             {
-
-                if (comboBoxEzaugarria.SelectedItem.ToString() == "erosketaData" && comboBoxEzaugarria.SelectedItem.ToString() != null)
+                if (comboBoxEzaugarria.SelectedItem == null)
+                {
+                    comboBoxEzaugarria = null;
+                }
+                else if (comboBoxEzaugarria.SelectedItem.ToString() == "erosketaData" && comboBoxEzaugarria.SelectedItem.ToString() != null)
                 {
                     comboBoxEzaugarriPosibleak.Hide();
                     hasieraData.Show();
@@ -263,7 +273,7 @@ namespace ERRONKA7
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception NullReferenceException)
             {
                 if (comboBoxEzaugarria.SelectedItem.ToString == null)
                 {
@@ -276,6 +286,22 @@ namespace ERRONKA7
 
 
 
+        }
+
+        private void bajaEmandaErakutsi_CheckStateChanged(object sender, EventArgs e)
+        {
+
+            dataGridBistaratu.DataSource = null;
+
+            string consultaSql = "SELECT * FROM produktutaula WHERE bajanDago ='EZ'";
+
+            MySqlCommand cmd5 = new MySqlCommand(consultaSql, Konexioa.connection);
+            MySqlDataAdapter da5 = new MySqlDataAdapter(cmd5);
+
+            DataTable dt5 = new DataTable();
+            da5.Fill(dt5);
+
+            dataGridBistaratu.DataSource = dt5;
         }
     }
 }

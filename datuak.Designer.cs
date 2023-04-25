@@ -45,9 +45,11 @@
             btBajaEman = new Button();
             btIrten = new Button();
             dataGridView1 = new DataGridView();
-            listBoxGailuMota = new ListBox();
-            dateTimePicker1 = new DateTimePicker();
+            erosketaDataPicker = new DateTimePicker();
             label6 = new Label();
+            markaLabel = new Label();
+            txtMarka = new TextBox();
+            comboBoxGailuMota = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(376, 64);
+            label1.Location = new Point(439, 68);
             label1.Name = "label1";
             label1.Size = new Size(80, 20);
             label1.TabIndex = 2;
@@ -74,7 +76,7 @@
             listBoxKantitatea.FormattingEnabled = true;
             listBoxKantitatea.ItemHeight = 20;
             listBoxKantitatea.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            listBoxKantitatea.Location = new Point(492, 64);
+            listBoxKantitatea.Location = new Point(555, 68);
             listBoxKantitatea.Name = "listBoxKantitatea";
             listBoxKantitatea.Size = new Size(171, 24);
             listBoxKantitatea.TabIndex = 4;
@@ -85,7 +87,7 @@
             listBoxMintegi.FormattingEnabled = true;
             listBoxMintegi.ItemHeight = 20;
             listBoxMintegi.Items.AddRange(new object[] { "Guztiak", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa", "Zuzendaritza" });
-            listBoxMintegi.Location = new Point(492, 20);
+            listBoxMintegi.Location = new Point(555, 24);
             listBoxMintegi.Name = "listBoxMintegi";
             listBoxMintegi.Size = new Size(171, 24);
             listBoxMintegi.TabIndex = 6;
@@ -93,7 +95,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(385, 20);
+            label2.Location = new Point(448, 24);
             label2.Name = "label2";
             label2.Size = new Size(71, 20);
             label2.TabIndex = 5;
@@ -102,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(44, 67);
+            label3.Location = new Point(44, 117);
             label3.Name = "label3";
             label3.Size = new Size(72, 20);
             label3.TabIndex = 7;
@@ -110,9 +112,8 @@
             // 
             // txtModeloa
             // 
-            txtModeloa.CharacterCasing = CharacterCasing.Upper;
             txtModeloa.Cursor = Cursors.IBeam;
-            txtModeloa.Location = new Point(172, 64);
+            txtModeloa.Location = new Point(172, 114);
             txtModeloa.Name = "txtModeloa";
             txtModeloa.Size = new Size(171, 27);
             txtModeloa.TabIndex = 8;
@@ -120,7 +121,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(44, 117);
+            label4.Location = new Point(427, 114);
             label4.Name = "label4";
             label4.Size = new Size(122, 20);
             label4.TabIndex = 10;
@@ -129,7 +130,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(376, 117);
+            label5.Location = new Point(446, 164);
             label5.Name = "label5";
             label5.Size = new Size(103, 20);
             label5.TabIndex = 12;
@@ -140,7 +141,7 @@
             // 
             txtPantaila.CharacterCasing = CharacterCasing.Upper;
             txtPantaila.Cursor = Cursors.IBeam;
-            txtPantaila.Location = new Point(172, 110);
+            txtPantaila.Location = new Point(555, 114);
             txtPantaila.Name = "txtPantaila";
             txtPantaila.Size = new Size(171, 27);
             txtPantaila.TabIndex = 13;
@@ -149,7 +150,7 @@
             // 
             txtDeskribapena.CharacterCasing = CharacterCasing.Upper;
             txtDeskribapena.Cursor = Cursors.IBeam;
-            txtDeskribapena.Location = new Point(492, 114);
+            txtDeskribapena.Location = new Point(555, 161);
             txtDeskribapena.Name = "txtDeskribapena";
             txtDeskribapena.Size = new Size(171, 27);
             txtDeskribapena.TabIndex = 14;
@@ -206,21 +207,12 @@
             dataGridView1.Size = new Size(775, 169);
             dataGridView1.TabIndex = 19;
             // 
-            // listBoxGailuMota
+            // erosketaDataPicker
             // 
-            listBoxGailuMota.FormattingEnabled = true;
-            listBoxGailuMota.ItemHeight = 20;
-            listBoxGailuMota.Location = new Point(172, 20);
-            listBoxGailuMota.Name = "listBoxGailuMota";
-            listBoxGailuMota.Size = new Size(171, 24);
-            listBoxGailuMota.TabIndex = 20;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(172, 163);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(307, 27);
-            dateTimePicker1.TabIndex = 21;
+            erosketaDataPicker.Location = new Point(172, 163);
+            erosketaDataPicker.Name = "erosketaDataPicker";
+            erosketaDataPicker.Size = new Size(268, 27);
+            erosketaDataPicker.TabIndex = 21;
             // 
             // label6
             // 
@@ -231,15 +223,42 @@
             label6.TabIndex = 22;
             label6.Text = "Erosketa Data:";
             // 
+            // markaLabel
+            // 
+            markaLabel.AutoSize = true;
+            markaLabel.Location = new Point(44, 68);
+            markaLabel.Name = "markaLabel";
+            markaLabel.Size = new Size(53, 20);
+            markaLabel.TabIndex = 23;
+            markaLabel.Text = "Marka:";
+            // 
+            // txtMarka
+            // 
+            txtMarka.Location = new Point(172, 61);
+            txtMarka.Name = "txtMarka";
+            txtMarka.Size = new Size(171, 27);
+            txtMarka.TabIndex = 24;
+            // 
+            // comboBoxGailuMota
+            // 
+            comboBoxGailuMota.AccessibleRole = AccessibleRole.ScrollBar;
+            comboBoxGailuMota.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxGailuMota.Location = new Point(171, 16);
+            comboBoxGailuMota.Name = "comboBoxGailuMota";
+            comboBoxGailuMota.Size = new Size(172, 28);
+            comboBoxGailuMota.TabIndex = 28;
+            // 
             // bErregistroBerria
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(799, 469);
+            Controls.Add(comboBoxGailuMota);
+            Controls.Add(txtMarka);
+            Controls.Add(markaLabel);
             Controls.Add(label6);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(listBoxGailuMota);
+            Controls.Add(erosketaDataPicker);
             Controls.Add(dataGridView1);
             Controls.Add(btIrten);
             Controls.Add(btBajaEman);
@@ -289,8 +308,10 @@
         private Button btBajaEman;
         private Button btIrten;
         private DataGridView dataGridView1;
-        private ListBox listBoxGailuMota;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker erosketaDataPicker;
         private Label label6;
+        private Label markaLabel;
+        private TextBox txtMarka;
+        private ComboBox comboBoxGailuMota;
     }
 }

@@ -100,6 +100,7 @@
             bajaEmandaErakutsi.Text = "Bajan emanda daudenak EZ erakutsi";
             bajaEmandaErakutsi.UseVisualStyleBackColor = true;
             bajaEmandaErakutsi.CheckedChanged += bajaEmandaErakutsi_CheckedChanged;
+            bajaEmandaErakutsi.CheckStateChanged += bajaEmandaErakutsi_CheckStateChanged;
             // 
             // btBistaratu
             // 
