@@ -194,8 +194,15 @@ namespace ERRONKA7
                 {
                     //string mintegia = comboBoxMintegia.SelectedItem.ToString();
                     string mintegia = comboBoxMintegia.Text;
-                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = @gailuMota AND mintegia='" + mintegia + "'";
+                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE gailuMota = '" +selectgailuMota+ "' AND mintegia='" + mintegia + "'";
 
+
+                }
+                if (comboBoxMintegia.SelectedIndex != null && comboBoxGailuMota.SelectedIndex == null)
+                {
+                    //string mintegia = comboBoxMintegia.SelectedItem.ToString();
+                    string mintegia = comboBoxMintegia.Text;
+                    consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE mintegia = '" + mintegia + "'";
                 }
 
                 if (comboBoxEzaugarria.SelectedItem != null)
@@ -230,12 +237,7 @@ namespace ERRONKA7
 
             }
 
-            if (comboBoxMintegia.SelectedValue != null)
-            {
-                //string mintegia = comboBoxMintegia.SelectedItem.ToString();
-                string mintegia = comboBoxMintegia.Text;
-                consultaSql = "SELECT gailuMota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,erosketaData FROM produktutaula WHERE mintegia = '" + mintegia + "'";
-            }
+            
 
             // SQL komando objektu bat sortu eta kontsultaSql-en parametroa gehitu
             MySqlCommand komandoa = new MySqlCommand(consultaSql, Konexioa.connection);

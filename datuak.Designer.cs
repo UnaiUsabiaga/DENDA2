@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bErregistroBerria));
             gailuMota = new Label();
             label1 = new Label();
-            listBoxKantitatea = new ListBox();
-            listBoxMintegi = new ListBox();
             label2 = new Label();
             label3 = new Label();
             txtModeloa = new TextBox();
@@ -50,6 +48,8 @@
             markaLabel = new Label();
             txtMarka = new TextBox();
             comboBoxGailuMota = new ComboBox();
+            cBoxMintegia = new ComboBox();
+            txtKantitatea = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -70,26 +70,6 @@
             label1.Size = new Size(80, 20);
             label1.TabIndex = 2;
             label1.Text = "Kantitatea:";
-            // 
-            // listBoxKantitatea
-            // 
-            listBoxKantitatea.FormattingEnabled = true;
-            listBoxKantitatea.ItemHeight = 20;
-            listBoxKantitatea.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            listBoxKantitatea.Location = new Point(555, 68);
-            listBoxKantitatea.Name = "listBoxKantitatea";
-            listBoxKantitatea.Size = new Size(171, 24);
-            listBoxKantitatea.TabIndex = 4;
-            // 
-            // listBoxMintegi
-            // 
-            listBoxMintegi.FormattingEnabled = true;
-            listBoxMintegi.ItemHeight = 20;
-            listBoxMintegi.Items.AddRange(new object[] { "Zuzendaritza", "Informatika", "Administraritza", "Zurgintza", "Mekanika e.m.", "Mekanika g.m.", "Mekatronika", "Arreta", "FOL eta Inglesa" });
-            listBoxMintegi.Location = new Point(555, 24);
-            listBoxMintegi.Name = "listBoxMintegi";
-            listBoxMintegi.Size = new Size(171, 24);
-            listBoxMintegi.TabIndex = 6;
             // 
             // label2
             // 
@@ -247,12 +227,32 @@
             comboBoxGailuMota.Size = new Size(172, 28);
             comboBoxGailuMota.TabIndex = 28;
             // 
+            // cBoxMintegia
+            // 
+            cBoxMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBoxMintegia.FormattingEnabled = true;
+            cBoxMintegia.Location = new Point(554, 16);
+            cBoxMintegia.Name = "cBoxMintegia";
+            cBoxMintegia.Size = new Size(172, 28);
+            cBoxMintegia.TabIndex = 29;
+            // 
+            // txtKantitatea
+            // 
+            txtKantitatea.CharacterCasing = CharacterCasing.Upper;
+            txtKantitatea.Cursor = Cursors.IBeam;
+            txtKantitatea.Location = new Point(554, 68);
+            txtKantitatea.Name = "txtKantitatea";
+            txtKantitatea.Size = new Size(171, 27);
+            txtKantitatea.TabIndex = 30;
+            // 
             // bErregistroBerria
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(799, 469);
+            Controls.Add(txtKantitatea);
+            Controls.Add(cBoxMintegia);
             Controls.Add(comboBoxGailuMota);
             Controls.Add(txtMarka);
             Controls.Add(markaLabel);
@@ -269,9 +269,7 @@
             Controls.Add(label4);
             Controls.Add(txtModeloa);
             Controls.Add(label3);
-            Controls.Add(listBoxMintegi);
             Controls.Add(label2);
-            Controls.Add(listBoxKantitatea);
             Controls.Add(label1);
             Controls.Add(gailuMota);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -293,8 +291,6 @@
 
         private Label gailuMota;
         private Label label1;
-        private ListBox listBoxKantitatea;
-        private ListBox listBoxMintegi;
         private Label label2;
         private Label label3;
         private TextBox txtModeloa;
@@ -312,5 +308,7 @@
         private Label markaLabel;
         private TextBox txtMarka;
         private ComboBox comboBoxGailuMota;
+        private ComboBox cBoxMintegia;
+        private TextBox txtKantitatea;
     }
 }

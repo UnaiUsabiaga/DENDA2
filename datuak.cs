@@ -32,6 +32,8 @@ namespace ERRONKA7
 
             gailuMotakLortu();
 
+            mintegiakLortu();
+
             erosketaDataPicker.MaxDate = DateTime.Now;
         }
 
@@ -73,26 +75,53 @@ namespace ERRONKA7
             comboBoxGailuMota.ValueMember = "gailuMota";
             comboBoxGailuMota.SelectedItem = null;
         }
+        private void mintegiakLortu()
+        {
+            string selectMintegia = "SELECT izena FROM mintegiTaula";
 
-        private void btErregistroBerria_Click(object sender, EventArgs e)
+            cBoxMintegia.DataSource = null;
+
+            MySqlCommand cmd2 = new MySqlCommand(selectMintegia, Konexioa.connection);
+
+            MySqlDataAdapter da2 = new MySqlDataAdapter(cmd2);
+
+            DataTable dt2 = new DataTable();
+            da2.Fill(dt2);
+
+            cBoxMintegia.DataSource = dt2;
+            cBoxMintegia.ValueMember = "izena";
+            cBoxMintegia.DisplayMember = "izena";
+        }
+
+            private void btErregistroBerria_Click(object sender, EventArgs e)
         {
 
             string modeloa = txtModeloa.Text;
-            string pantailaTamaina = txtPantaila.Text;
+            
             string deskribapena = txtDeskribapena.Text;
             string marka = txtMarka.Text;
             string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
+            string pantailaTamaina = "";
+
+            if(txtPantaila.Text != null)
+            {
+               pantailaTamaina = txtPantaila.Text;
+            }
+            else
+            {
+                pantailaTamaina = "";
+            }
 
             string mintegia = "";
-            if (listBoxMintegi.SelectedItem != null)
+            if (cBoxMintegia.SelectedValue.ToString() != null)
             {
-                mintegia = listBoxMintegi.SelectedItem.ToString();
+                mintegia = cBoxMintegia.SelectedValue.ToString();
             }
 
             string kantitatea = "";
-            if (listBoxKantitatea.SelectedItem != null)
+            if (txtKantitatea.Text != null)
             {
-                kantitatea = listBoxKantitatea.SelectedValue.ToString();
+                kantitatea = txtKantitatea.Text.ToString();
             }
 
             string erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
@@ -117,5 +146,8 @@ namespace ERRONKA7
 
 
         }
-    }
+
+
+        }
+    
 }
