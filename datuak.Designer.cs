@@ -153,6 +153,7 @@
             btDatuakBerritu.TabIndex = 16;
             btDatuakBerritu.Text = "Datuak Berritu";
             btDatuakBerritu.UseVisualStyleBackColor = true;
+            btDatuakBerritu.Click += btDatuakBerritu_Click;
             // 
             // btBajaEman
             // 
@@ -163,6 +164,7 @@
             btBajaEman.TabIndex = 17;
             btBajaEman.Text = "Baja Eman";
             btBajaEman.UseVisualStyleBackColor = false;
+            btBajaEman.Click += btBajaEman_Click;
             // 
             // btIrten
             // 
