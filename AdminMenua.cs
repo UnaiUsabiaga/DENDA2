@@ -19,22 +19,28 @@ namespace ERRONKA7
 
         private void btIrten_Click(object sender, EventArgs e)
         {
-            //this.Close();
+                //this.Close();
             this.Hide();
+                //hide the form, not close to avoid problems reopening it
             Program.adminLoginForm.Show();
+                //show the past window form, admin login
         }
 
         private void BTdatuakBistaratu_Click(object sender, EventArgs e)
         {
             
             Program.datuakBistaratuForm.Show();
+                //show the next window form, datuak bistaratu
             this.Hide();
+                //hide the form, not close to avoid problems reopening it
         }
 
         private void BTdatuakEguneratu_Click(object sender, EventArgs e)
         {
             this.Hide();
+                //hide the form, not close to avoid problems reopening it
             Program.datuakForm.Show();
+                //show the next window form, datuak bistaratu
         }
     }
 }

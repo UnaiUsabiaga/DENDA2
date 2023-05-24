@@ -100,7 +100,6 @@
             bajaEmandaErakutsi.Text = "Bajan emanda daudenak EZ erakutsi";
             bajaEmandaErakutsi.UseVisualStyleBackColor = true;
             bajaEmandaErakutsi.CheckedChanged += bajaEmandaErakutsi_CheckedChanged;
-            bajaEmandaErakutsi.CheckStateChanged += bajaEmandaErakutsi_CheckStateChanged;
             // 
             // btBistaratu
             // 
@@ -112,7 +111,7 @@
             btBistaratu.TabIndex = 24;
             btBistaratu.Text = "Bistaratu";
             btBistaratu.UseVisualStyleBackColor = false;
-            btBistaratu.Click += btBistaratu_Click;
+            btBistaratu.Click += btBistaratu_Click_1;
             // 
             // btReset
             // 
@@ -162,7 +161,6 @@
             comboBoxEzaugarria.Name = "comboBoxEzaugarria";
             comboBoxEzaugarria.Size = new Size(172, 28);
             comboBoxEzaugarria.TabIndex = 29;
-            comboBoxEzaugarria.SelectedIndexChanged += comboBoxEzaugarria_SelectedIndexChanged;
             // 
             // comboBoxEzaugarriPosibleak
             // 

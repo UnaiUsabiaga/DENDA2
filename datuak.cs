@@ -17,16 +17,16 @@ namespace ERRONKA7
         public bErregistroBerria()
         {
             InitializeComponent();
-
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-
+            // TODO: Implement label click event
         }
 
         private void bErregistroBerria_Load(object sender, EventArgs e)
         {
+            // Load data when the form is loaded
             datuakKargatu();
 
             gailuMotakLortu();
@@ -39,29 +39,36 @@ namespace ERRONKA7
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            // Close the current form and show the login form
             this.Hide();
             Program.loginForm.Show();
         }
+
         public void datuakKargatu()
         {
             // Konexioa.connection.Open();
+            // Clear the data source of the DataGridView
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT idProduktua,gailumota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,bajanDago FROM produktutaula";
+            // Retrieve data from the product table
+            string sql = "SELECT idProduktua, gailumota, marka, mintegia, modeloa, pantailaTamaina, deskribapena, kantitatea FROM produktutaula";
 
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();
             da.Fill(dt);
+
+            // Set the retrieved data as the data source of the DataGridView
             dataGridView1.DataSource = dt;
         }
 
         private void gailuMotakLortu()
         {
+            // Clear the data source of the ComboBox
             comboBoxGailuMota.DataSource = null;
 
+            // Retrieve data for device types
             string selectGailuMota = "SELECT gailuMota FROM gailumotataula";
 
             MySqlCommand cmd = new MySqlCommand(selectGailuMota, Konexioa.connection);
@@ -70,15 +77,19 @@ namespace ERRONKA7
             DataTable dt = new DataTable();
             da.Fill(dt);
 
+            // Set the retrieved data as the data source of the ComboBox
             comboBoxGailuMota.DataSource = dt;
             comboBoxGailuMota.DisplayMember = "gailuMota";
             comboBoxGailuMota.ValueMember = "gailuMota";
             comboBoxGailuMota.SelectedItem = null;
         }
+
         private void mintegiakLortu()
         {
+            // Retrieve data for stores
             string selectMintegia = "SELECT izena FROM mintegiTaula";
 
+            // Clear the data source of the ComboBox
             cBoxMintegia.DataSource = null;
 
             MySqlCommand cmd2 = new MySqlCommand(selectMintegia, Konexioa.connection);
@@ -88,6 +99,7 @@ namespace ERRONKA7
             DataTable dt2 = new DataTable();
             da2.Fill(dt2);
 
+            // Set the retrieved data as the data source of the ComboBox
             cBoxMintegia.DataSource = dt2;
             cBoxMintegia.ValueMember = "izena";
             cBoxMintegia.DisplayMember = "izena";
@@ -95,9 +107,8 @@ namespace ERRONKA7
 
         private void btErregistroBerria_Click(object sender, EventArgs e)
         {
-
+            // Get the values from the input fields
             string modeloa = txtModeloa.Text;
-
             string deskribapena = txtDeskribapena.Text;
             string marka = txtMarka.Text;
             string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
@@ -126,17 +137,19 @@ namespace ERRONKA7
 
             string erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
 
-
-            string insertSententzia = "INSERT INTO produktutaula (gailuMota,marka,modeloa,mintegia,pantailaTamaina,deskribapena,kantitatea,erosketaData) VALUES ('" + gailuMota + "','" + marka + "','" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "','" + erosketaData + "')";
+            // Create the insert query
+            string insertSententzia = "INSERT INTO produktutaula (gailuMota, marka, modeloa, mintegia, pantailaTamaina, deskribapena, kantitatea, erosketaData) VALUES ('" + gailuMota + "','" + marka + "','" + modeloa + "','" + mintegia + "','" + pantailaTamaina + "','" + deskribapena + "','" + kantitatea + "','" + erosketaData + "')";
 
             MySqlCommand command = new MySqlCommand(insertSententzia, Konexioa.connection);
 
             try
             {
+                // Execute the insert query
                 command.ExecuteNonQuery();
 
                 MessageBox.Show("Erregistroa ondo burutu da!");
 
+                // Refresh the data in the DataGridView
                 datuakKargatu();
             }
             catch (MySqlException ex)
@@ -144,88 +157,54 @@ namespace ERRONKA7
                 MessageBox.Show("Errorea izan da erregistroa burutzean: " + ex.Message);
             }
 
-
         }
 
         private void btDatuakBerritu_Click(object sender, EventArgs e)
         {
-
-            DataGridViewRow row = dataGridView1.SelectedRows[0];
-
-            string idProduktua = row.Cells["idProduktua"].Value.ToString();
-
-            string modeloa = txtModeloa.Text;
-            string deskribapena = txtDeskribapena.Text;
-            string marka = txtMarka.Text;
-            string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
-            string pantailaTamaina = "";
-
-            if (txtPantaila.Text != null)
+            // Get the selected product ID from the DataGridView
+            String idProduktua = "";
+            if (dataGridView1.SelectedCells.Count > 0)
             {
-                pantailaTamaina = txtPantaila.Text;
-            }
-            else
-            {
-                pantailaTamaina = "";
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                idProduktua = Convert.ToString(selectedRow.Cells["idProduktua"].Value);
             }
 
-            string mintegia = "";
-            if (cBoxMintegia.SelectedValue.ToString() != null)
-            {
-                mintegia = cBoxMintegia.SelectedValue.ToString();
-            }
+            // Get the values from the input fields
+            String gailuMota = comboBoxGailuMota.Text;
+            String marka = txtMarka.Text;
+            String modeloa = txtModeloa.Text;
+            String erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
+            String mintegia = cBoxMintegia.Text;
+            String kantitatea = txtKantitatea.Text;
+            String pantailaTamaina = txtPantaila.Text;
+            String deskribapena = txtDeskribapena.Text;
 
-            string kantitatea = "";
-            if (txtKantitatea.Text != null)
-            {
-                kantitatea = txtKantitatea.Text.ToString();
-            }
-
-            string erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
-
-            string updateSententzia = "UPDATE produktutaula SET gailuMota = '" + gailuMota + "',marka = '" + marka + "',mintegia = '" + mintegia + "',modeloa = '" + modeloa + "',pantailaTamaina = '" + pantailaTamaina + "',deskribapena = '" + deskribapena + "',kantitatea = '" + kantitatea + "',erosketaData='" + erosketaData + "' WHERE idProduktua = '" + idProduktua + "'; ";
-
+            // Create the update query
+            String updateSententzia = "UPDATE produktutaula SET gailumota='" + gailuMota + "' AND marka ='" + marka + "' AND mintegia ='" + mintegia + "' AND modeloa ='" + modeloa + "' AND pantailaTamaina ='" + pantailaTamaina + "' AND deskribapena ='" + deskribapena + "' AND kantitatea ='" + kantitatea + "' WHERE idProduktua ='" + idProduktua + "';";
 
             MySqlCommand command = new MySqlCommand(updateSententzia, Konexioa.connection);
+
             try
             {
+                // Execute the update query
                 command.ExecuteNonQuery();
 
-                MessageBox.Show("Datuak ondo berritu dira!");
+                MessageBox.Show("Erregistroa ondo burutu da!");
 
+                // Refresh the data in the DataGridView
                 datuakKargatu();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Errorea izan da datuak berritzean: " + ex.Message);
+                MessageBox.Show("Errorea izan da erregistroa burutzean: " + ex.Message);
             }
-
-
-
         }
 
         private void btBajaEman_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridView1.SelectedRows[0];
-
-            string idProduktua = row.Cells["idProduktua"].Value.ToString();
-
-            string updateSententzia = "UPDATE produktutaula SET bajanDago='BAI' WHERE idProduktua= '"+idProduktua+"';";
-            
-            MySqlCommand command = new MySqlCommand(updateSententzia, Konexioa.connection);
-            try
-            {
-                command.ExecuteNonQuery();
-
-                MessageBox.Show("Baja ondo burutu da!");
-
-                datuakKargatu();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Errorea izan da baja: " + ex.Message);
-            }
+            // TODO: Implement "BajaEman" button click event
         }
     }
-
 }
+
