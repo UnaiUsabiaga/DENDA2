@@ -48,7 +48,7 @@ namespace ERRONKA7
             // Konexioa.connection.Open();
             dataGridView1.DataSource = null;
 
-            string sql = "SELECT gailumota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea FROM produktutaula";
+            string sql = "SELECT idProduktua,gailumota,marka,mintegia,modeloa,pantailaTamaina,deskribapena,kantitatea,bajanDago FROM produktutaula";
 
             MySqlCommand cmd = new MySqlCommand(sql, Konexioa.connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -93,19 +93,19 @@ namespace ERRONKA7
             cBoxMintegia.DisplayMember = "izena";
         }
 
-            private void btErregistroBerria_Click(object sender, EventArgs e)
+        private void btErregistroBerria_Click(object sender, EventArgs e)
         {
 
             string modeloa = txtModeloa.Text;
-            
+
             string deskribapena = txtDeskribapena.Text;
             string marka = txtMarka.Text;
             string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
             string pantailaTamaina = "";
 
-            if(txtPantaila.Text != null)
+            if (txtPantaila.Text != null)
             {
-               pantailaTamaina = txtPantaila.Text;
+                pantailaTamaina = txtPantaila.Text;
             }
             else
             {
@@ -147,7 +147,85 @@ namespace ERRONKA7
 
         }
 
+        private void btDatuakBerritu_Click(object sender, EventArgs e)
+        {
+
+            DataGridViewRow row = dataGridView1.SelectedRows[0];
+
+            string idProduktua = row.Cells["idProduktua"].Value.ToString();
+
+            string modeloa = txtModeloa.Text;
+            string deskribapena = txtDeskribapena.Text;
+            string marka = txtMarka.Text;
+            string gailuMota = comboBoxGailuMota.SelectedValue.ToString();
+            string pantailaTamaina = "";
+
+            if (txtPantaila.Text != null)
+            {
+                pantailaTamaina = txtPantaila.Text;
+            }
+            else
+            {
+                pantailaTamaina = "";
+            }
+
+            string mintegia = "";
+            if (cBoxMintegia.SelectedValue.ToString() != null)
+            {
+                mintegia = cBoxMintegia.SelectedValue.ToString();
+            }
+
+            string kantitatea = "";
+            if (txtKantitatea.Text != null)
+            {
+                kantitatea = txtKantitatea.Text.ToString();
+            }
+
+            string erosketaData = erosketaDataPicker.Value.Year + "-" + erosketaDataPicker.Value.Month + "-" + erosketaDataPicker.Value.Day;
+
+            string updateSententzia = "UPDATE produktutaula SET gailuMota = '" + gailuMota + "',marka = '" + marka + "',mintegia = '" + mintegia + "',modeloa = '" + modeloa + "',pantailaTamaina = '" + pantailaTamaina + "',deskribapena = '" + deskribapena + "',kantitatea = '" + kantitatea + "',erosketaData='" + erosketaData + "' WHERE idProduktua = '" + idProduktua + "'; ";
+
+
+            MySqlCommand command = new MySqlCommand(updateSententzia, Konexioa.connection);
+            try
+            {
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Datuak ondo berritu dira!");
+
+                datuakKargatu();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Errorea izan da datuak berritzean: " + ex.Message);
+            }
+
+
 
         }
-    
+
+        private void btBajaEman_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.SelectedRows[0];
+
+            string idProduktua = row.Cells["idProduktua"].Value.ToString();
+
+            string updateSententzia = "UPDATE produktutaula SET bajanDago='BAI' WHERE idProduktua= '"+idProduktua+"';";
+            
+            MySqlCommand command = new MySqlCommand(updateSententzia, Konexioa.connection);
+            try
+            {
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Baja ondo burutu da!");
+
+                datuakKargatu();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Errorea izan da baja: " + ex.Message);
+            }
+        }
+    }
+
 }

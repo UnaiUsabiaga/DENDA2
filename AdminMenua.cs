@@ -33,6 +33,7 @@ namespace ERRONKA7
 
         private void BTdatuakEguneratu_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Program.datuakForm.Show();
         }
     }
