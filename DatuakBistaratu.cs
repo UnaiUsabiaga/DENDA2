@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -59,7 +60,8 @@ namespace ERRONKA7
         }
         private void btIrten_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Hide();
 
             Program.loginForm.Show();
         }
@@ -67,20 +69,36 @@ namespace ERRONKA7
         {
             try
             {
-                comboBoxGailuMota.SelectedItem = null;
-                comboBoxMintegia.SelectedItem = null;
-                dataGridBistaratu.DataSource = null;
-                comboBoxEzaugarria.DisplayMember = null;
+                if (comboBoxEzaugarria.SelectedItem != null)
+                {
+                        comboBoxGailuMota.SelectedItem = null;
+                        comboBoxMintegia.SelectedItem = null;
+                        dataGridBistaratu.DataSource = null;
+                        comboBoxEzaugarria.SelectedItem = null;
+                        comboBoxEzaugarriPosibleak.SelectedItem = null;
 
-                hasieraData.Hide();
-                hasieraDataPicker.Hide();
-                amaieraData.Hide();
-                amaieraDataPicker.Hide();
+                        hasieraData.Hide();
+                        hasieraDataPicker.Hide();
+                        amaieraData.Hide();
+                        amaieraDataPicker.Hide();
+
+                    }              
+                else
+                {              
+                        comboBoxGailuMota.SelectedItem = null;
+                        comboBoxMintegia.SelectedItem = null;
+                        dataGridBistaratu.DataSource = null;
+
+                        hasieraData.Hide();
+                        hasieraDataPicker.Hide();
+                        amaieraData.Hide();
+                        amaieraDataPicker.Hide();
+                }
             }
-            catch (NullReferenceException)
+            catch
             {
-
-
+                comboBoxEzaugarria.ResetText();
+                comboBoxEzaugarriPosibleak.ResetText();
             }
             string consultaSql = "SELECT * FROM produktutaula";
         }

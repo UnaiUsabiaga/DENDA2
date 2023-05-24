@@ -18,7 +18,6 @@ namespace ERRONKA7
         {
             InitializeComponent();
 
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -35,12 +34,13 @@ namespace ERRONKA7
             mintegiakLortu();
 
             erosketaDataPicker.MaxDate = DateTime.Now;
+            //erosketaDataPicker.MinDate = "01/01/1960";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            //this.Close();
+            this.Hide();
             Program.loginForm.Show();
         }
         public void datuakKargatu()

@@ -14,7 +14,7 @@ namespace ERRONKA7
         {
             bool konexioa = false;
 
-            string server = "10.23.28.111";
+            string server = "10.23.28.156";
             string datubasea = "db_erronka7";
 
             string connectionString = "server="+ server +";port=3306;database="+ datubasea +";uid="+ erabiltzailea +";password=" + pasahitza;

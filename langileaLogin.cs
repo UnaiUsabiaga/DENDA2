@@ -13,7 +13,8 @@ namespace ERRONKA7
 
         private void bItxiLangilea_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Hide();
             Program.loginForm.Show();
         }
 

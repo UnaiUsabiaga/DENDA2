@@ -19,15 +19,16 @@ namespace ERRONKA7
 
         private void btIrten_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            //this.Close();
+            this.Hide();
             Program.adminLoginForm.Show();
         }
 
         private void BTdatuakBistaratu_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             Program.datuakBistaratuForm.Show();
+            this.Hide();
         }
 
         private void BTdatuakEguneratu_Click(object sender, EventArgs e)
